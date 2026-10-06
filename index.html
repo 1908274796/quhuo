@@ -7,8 +7,7 @@
 <style>
 :root { --bg:#FBF7F0; --card:#FFFFFF; --ink:#3D3229; --sub:#9A8A72; --brand:#C96F2B; --brand2:#D8923B; --ok:#3E8E5A; --line:#E8D9BC; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { margin:0; background:var(--bg); color:var(--ink);
-  font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
 .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
 header { text-align:center; padding: 26px 0 18px; }
 header .logo { font-size: 40px; }
@@ -26,14 +25,25 @@ header p { font-size: 12.5px; color: var(--sub); margin: 0; line-height: 1.7; }
 .btn-get { border:none; border-radius: 10px; padding: 10px 22px; font-size: 14.5px; font-weight: 700; color:#fff; background: linear-gradient(135deg, var(--brand), var(--brand2)); cursor:pointer; }
 .btn-get:active { filter: brightness(.92); }
 .result { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; }
-.row { display:flex; align-items:center; gap: 8px; margin-bottom: 8px; }
-.lbl { font-size: 12px; color: var(--sub); flex-shrink:0; }
-.val { font-size: 13px; word-break: break-all; flex:1; }
-.val.link { color: #1D6FBF; }
-.copy { border:1px solid var(--brand2); color: var(--brand); background:#fff; border-radius: 8px; padding: 5px 12px; font-size: 12.5px; cursor:pointer; flex-shrink:0; }
+.channel { margin-bottom: 12px; }
+.channel:last-of-type { margin-bottom: 0; }
+.part { background:#FFFCF5; border:1px solid #F0E4CC; border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+.part-head { display:flex; align-items:center; gap: 8px; margin-bottom: 6px; }
+.part-name { font-size: 13.5px; font-weight: 700; color:#0C4A6E; flex:1; }
+.todo-badge { font-size: 10.5px; color:#fff; background:#C9A96E; border-radius: 4px; padding: 1px 7px; }
+.todo-note { font-size: 12px; color: var(--sub); margin: 0; }
+.url-line { font-size: 12.5px; color:#1D6FBF; word-break: break-all; line-height: 1.6; }
+.code-line { font-size: 12.5px; color: var(--ink); margin-top: 5px; }
+.code-line b { color: var(--brand); letter-spacing: 1px; }
+.qr { display:block; width: 130px; height: 130px; margin: 8px auto 2px; border: 6px solid #fff; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+.qr-tip { text-align:center; font-size: 10.5px; color: var(--sub); margin: 0 0 4px; }
+.pwd { background:#F0F7F1; border:1px solid #CBE3D1; border-radius: 10px; padding: 9px 12px; font-size: 12.5px; margin-bottom: 10px; }
+.pwd b { color: var(--ok); letter-spacing: 1px; }
+.tut { border:1px dashed var(--line); border-radius: 10px; margin-top: 4px; }
+.tut summary { font-size: 12.5px; font-weight: 700; color:#7A6248; padding: 9px 12px; cursor:pointer; }
+.tut-body { font-size: 12px; color:#5A4A38; line-height: 2; padding: 0 12px 10px; }
+.copy { border:1px solid var(--brand2); color: var(--brand); background:#fff; border-radius: 8px; padding: 4px 10px; font-size: 12px; cursor:pointer; flex-shrink:0; }
 .copy:active { background:#FBF2E2; }
-.tip { font-size: 11.5px; color: var(--sub); margin: 6px 0 0; line-height: 1.8; }
-.err { color:#C0392B; font-size: 12.5px; margin-top: 8px; }
 footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px; line-height: 1.9; }
 .toast { position:fixed; left:50%; bottom: 12%; transform: translateX(-50%); background: rgba(61,50,41,.92); color:#fff; font-size: 13.5px; padding: 9px 20px; border-radius: 22px; opacity:0; transition: opacity .25s; pointer-events:none; }
 .toast.show { opacity: 1; }
@@ -44,11 +54,11 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   <header>
     <div class="logo">📦</div>
     <h1>优选资料铺 · 资料取货</h1>
-    <p>共 6 件商品 · 付款后凭取货码提取</p>
+    <p>共 7 件商品 · 付款后凭取货码提取</p>
   </header>
   <div class="notice">付款后请输入卖家提供的取货码，即可复制您的网盘链接。链接长期有效，如失效请联系卖家秒补。</div>
   
-<article class="card" data-code="8301" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8301">
   <div class="card-head"><span class="icon">☕</span>
     <div><h2>Java 面试八股文宝典 · 450道高频题</h2><p class="desc">300页 · 十大专题 · 校招社招通用</p></div>
   </div>
@@ -57,13 +67,19 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
 
-<article class="card" data-code="8302" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8302">
   <div class="card-head"><span class="icon">🐧</span>
     <div><h2>Linux 命令大全 · 621个命令详解</h2><p class="desc">503页 · 12大分类 · 运维开发必备</p></div>
   </div>
@@ -72,13 +88,19 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
 
-<article class="card" data-code="8303" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8303">
   <div class="card-head"><span class="icon">⚡</span>
     <div><h2>程序员速查手册 · 22张高频速查表</h2><p class="desc">249页 · 双栏排版 · 即查即用</p></div>
   </div>
@@ -87,13 +109,19 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
 
-<article class="card" data-code="8304" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8304">
   <div class="card-head"><span class="icon">🤖</span>
     <div><h2>AI 提示词宝典 · 239条拿来即用指令</h2><p class="desc">118页 · 六大场景 · DeepSeek豆包Kimi通用</p></div>
   </div>
@@ -102,13 +130,19 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
 
-<article class="card" data-code="8305" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8305">
   <div class="card-head"><span class="icon">📖</span>
     <div><h2>小学生必背古诗词75首 · 注音大字版</h2><p class="desc">32页 · 逐字注音 · 楷体大字护眼</p></div>
   </div>
@@ -117,13 +151,19 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
 
-<article class="card" data-code="8306" data-url="TODO_填入网盘分享链接">
+<article class="card" data-code="8306">
   <div class="card-head"><span class="icon">🍳</span>
     <div><h2>在家做饭指南 · 精选60道家常菜</h2><p class="desc">126页 · 用料步骤小贴士齐全</p></div>
   </div>
@@ -132,9 +172,50 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
     <button class="btn-get">取货</button>
   </div>
   <div class="result" hidden>
-    <div class="row"><span class="lbl">网盘链接</span><span class="val link">TODO_填入网盘分享链接</span><button class="copy" data-copy="TODO_填入网盘分享链接">复制</button></div>
-    <div class="row"><span class="lbl">提取码</span><span class="val">见闲鱼发货消息（请留意卖家发给您的消息）</span></div>
-    <p class="tip">复制链接到浏览器打开（或打开网盘App粘贴），输入提取码即可保存/下载。链接失效请联系卖家秒补。</p>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
+  </div>
+</article>
+
+<article class="card" data-code="8307">
+  <div class="card-head"><span class="icon">🗜️</span>
+    <div><h2>【示例】分卷压缩资料（夸克+百度双渠道）</h2><p class="desc">分卷压缩 · 夸克/百度双渠道 · 附解压教程</p></div>
+  </div>
+  <div class="gate">
+    <input type="tel" inputmode="numeric" maxlength="8" placeholder="输入取货码" class="code-input" />
+    <button class="btn-get">取货</button>
+  </div>
+  <div class="result" hidden>
+    <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘 · 分卷1</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div>
+
+        <div class="part">
+          <div class="part-head"><span class="part-name">夸克网盘 · 分卷2</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+<div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">百度网盘</span><span class="todo-badge">待填链接</span></div>
+          <p class="todo-note">卖家正在上架中，请联系卖家获取</p>
+          <div class="code-line">提取码：见闲鱼发货消息</div>
+          
+        </div></div>
+    <div class="pwd">解压密码：<b class="pwd-v">TODO_解压密码（没有就留空字符串）</b><button class="copy" data-copy="TODO_解压密码（没有就留空字符串）">复制密码</button></div>
+    <details class="tut"><summary>📖 分卷资料解压教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
   </div>
 </article>
   <footer>链接长期有效 · 遇问题请闲鱼联系卖家<br>本页面为取货专用页，请勿外传</footer>
@@ -156,7 +237,7 @@ document.querySelectorAll('.card').forEach(card => {
       result.hidden = false; gate.style.display = 'none';
     } else {
       let err = card.querySelector('.err');
-      if (!err) { err = document.createElement('p'); err.className = 'err'; gate.after(err); }
+      if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:8px 0 0'; gate.after(err); }
       err.textContent = '取货码不对，请核对卖家发给您的取货码';
     }
   }
