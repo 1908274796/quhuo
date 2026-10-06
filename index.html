@@ -58,7 +58,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </header>
   <div class="notice">付款后请输入卖家提供的取货码，即可复制您的网盘链接。链接长期有效，如失效请联系卖家秒补。</div>
   
-<article class="card" data-code="8301">
+<article class="card" data-code="618109">
   <div class="card-head"><span class="icon">☕</span>
     <div><h2>Java 面试八股文宝典 · 450道高频题</h2><p class="desc">300页 · 十大专题 · 校招社招通用</p></div>
   </div>
@@ -79,7 +79,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8302">
+<article class="card" data-code="299166">
   <div class="card-head"><span class="icon">🐧</span>
     <div><h2>Linux 命令大全 · 621个命令详解</h2><p class="desc">503页 · 12大分类 · 运维开发必备</p></div>
   </div>
@@ -100,7 +100,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8303">
+<article class="card" data-code="553623">
   <div class="card-head"><span class="icon">⚡</span>
     <div><h2>程序员速查手册 · 22张高频速查表</h2><p class="desc">249页 · 双栏排版 · 即查即用</p></div>
   </div>
@@ -121,7 +121,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8304">
+<article class="card" data-code="934915">
   <div class="card-head"><span class="icon">🤖</span>
     <div><h2>AI 提示词宝典 · 239条拿来即用指令</h2><p class="desc">118页 · 六大场景 · DeepSeek豆包Kimi通用</p></div>
   </div>
@@ -142,7 +142,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8305">
+<article class="card" data-code="447080">
   <div class="card-head"><span class="icon">📖</span>
     <div><h2>小学生必背古诗词75首 · 注音大字版</h2><p class="desc">32页 · 逐字注音 · 楷体大字护眼</p></div>
   </div>
@@ -163,7 +163,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8306">
+<article class="card" data-code="938814">
   <div class="card-head"><span class="icon">🍳</span>
     <div><h2>在家做饭指南 · 精选60道家常菜</h2><p class="desc">126页 · 用料步骤小贴士齐全</p></div>
   </div>
@@ -184,7 +184,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
   </div>
 </article>
 
-<article class="card" data-code="8307">
+<article class="card" data-code="259114">
   <div class="card-head"><span class="icon">🗜️</span>
     <div><h2>【示例】分卷压缩资料（夸克+百度双渠道）</h2><p class="desc">分卷压缩 · 夸克/百度双渠道 · 附解压教程</p></div>
   </div>
@@ -232,13 +232,27 @@ document.querySelectorAll('.card').forEach(card => {
   const input = card.querySelector('.code-input');
   const btn = card.querySelector('.btn-get');
   const result = card.querySelector('.result');
+  let fails = 0, lockTimer = null;
   function tryGet() {
+    if (lockTimer) { return; }
     if (input.value.trim() === card.dataset.code) {
       result.hidden = false; gate.style.display = 'none';
     } else {
+      fails++;
       let err = card.querySelector('.err');
       if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:8px 0 0'; gate.after(err); }
-      err.textContent = '取货码不对，请核对卖家发给您的取货码';
+      if (fails >= 5) {
+        let left = 60;
+        err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+        input.disabled = true; btn.disabled = true;
+        lockTimer = setInterval(() => {
+          left--;
+          if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; }
+          else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+        }, 1000);
+      } else {
+        err.textContent = '取货码不对，请核对卖家发给您的取货码（还可试 ' + (5 - fails) + ' 次）';
+      }
     }
   }
   btn.addEventListener('click', tryGet);
