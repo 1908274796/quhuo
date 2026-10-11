@@ -9,22 +9,31 @@
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
 .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
-header { text-align:center; padding: 26px 0 18px; }
-header .logo { font-size: 40px; }
-header h1 { font-size: 22px; margin: 6px 0 4px; letter-spacing: 1px; }
-header p { font-size: 12.5px; color: var(--sub); margin: 0; line-height: 1.7; }
+header { padding: 14px 0 0; }
+.hero { position: relative; margin: 0 -16px 14px; padding: 24px 20px 20px; overflow: hidden;
+  background: linear-gradient(160deg, #0B1B3F 0%, #12295E 55%, #1D4ED8 135%); color: #F2F5FF;
+  border-radius: 0 0 22px 22px; }
+.hero-glow { position: absolute; border-radius: 50%; }
+.hero-glow.g1 { width: 180px; height: 180px; right: -50px; top: -60px; background: radial-gradient(circle, rgba(125,211,252,.35), transparent 70%); }
+.hero-glow.g2 { width: 150px; height: 150px; left: -40px; bottom: -70px; background: radial-gradient(circle, rgba(99,102,241,.3), transparent 70%); }
+.hero .logo { display: inline-flex; width: 46px; height: 46px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.2); border-radius: 14px; align-items: center; justify-content: center; font-size: 24px; }
+.hero h1 { font-size: 24px; font-weight: 800; margin: 12px 0 4px; letter-spacing: .5px; }
+.hero h1 .accent { color: #7DD3FC; }
+.hero p { font-size: 12.5px; color: #C6D4F5; margin: 0 0 10px; }
+.hero .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.hero .chips span { font-size: 11px; color: #DCE7FA; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); border-radius: 20px; padding: 4px 10px; }
 .searchbox { position: sticky; top: 0; z-index: 50; margin: 0 -16px 14px; padding: 8px 16px; background: rgba(251,247,240,.96); backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(138,110,60,.08); }
 .searchbox input { width: 100%; border: 1.5px solid var(--line); border-radius: 22px; padding: 11px 18px; font-size: 14px; background: #fff; color: var(--ink); }
 .searchbox input:focus { outline: none; border-color: var(--brand2); }
 .no-match { text-align: center; color: var(--sub); font-size: 13px; padding: 30px 0; display: none; }
-.notice { background:#FFF7E8; border:1px solid var(--line); border-radius: 12px; padding: 10px 14px; font-size: 12.5px; color:#7A6248; margin-bottom: 18px; line-height:1.8; }
-.card { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(138,110,60,.06); transition: transform .15s ease, box-shadow .15s ease; animation: fadeUp .45s ease both; animation-delay: calc(var(--d, 0) * 60ms); }
+.notice { background:#FFF7E8; border-left: 3px solid var(--brand2); border-radius: 10px; padding: 9px 13px; font-size: 12px; color:#7A6248; margin-bottom: 16px; line-height:1.8; }
+.card { position: relative; background: var(--card); border: 1.5px solid var(--line); border-top: 3px solid hsl(var(--h) 70% 52%); border-radius: 16px; padding: 16px; margin-bottom: 14px; box-shadow: 0 2px 10px rgba(138,110,60,.08); transition: transform .15s ease, box-shadow .15s ease; animation: fadeUp .45s ease both; animation-delay: calc(var(--d, 0) * 60ms); overflow: hidden; }
 .card:active { transform: scale(.985); box-shadow: 0 1px 4px rgba(138,110,60,.1); }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 .card-head { display:flex; gap: 12px; align-items:center; margin-bottom: 12px; }
 .detail-link { margin-left: auto; flex-shrink: 0; font-size: 12px; font-weight: 700; color: var(--brand); text-decoration: none; border: 1px solid var(--brand2); border-radius: 14px; padding: 4px 10px; background: #fff; }
-.card-head .icon { font-size: 30px; width: 52px; height: 52px; border-radius: 14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background: linear-gradient(135deg, hsl(var(--h) 65% 55% / .16), hsl(var(--h) 75% 48% / .3)); border: 1px solid hsl(var(--h) 60% 50% / .25); }
-.card-head h2 { font-size: 15.5px; margin: 0 0 3px; line-height: 1.4; }
+.card-head .icon { font-size: 32px; width: 56px; height: 56px; border-radius: 15px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background: linear-gradient(135deg, hsl(var(--h) 70% 60% / .22), hsl(var(--h) 80% 50% / .38)); border: 1px solid hsl(var(--h) 60% 50% / .3); }
+.card-head h2 { font-size: 16px; font-weight: 800; margin: 0 0 3px; line-height: 1.4; color: #14203A; }
 .card-head .desc { font-size: 12px; color: var(--sub); margin: 0; }
 .gate { display:flex; gap: 8px; }
 .code-input { flex:1; border:1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 15px; letter-spacing: 2px; background:#FFFDF8; color:var(--ink); }
@@ -59,9 +68,13 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
 <body>
 <div class="wrap">
   <header>
-    <div class="logo">📦</div>
-    <h1>优选资料铺 · 资料取货</h1>
-    <p>共 9 件商品 · 付款后凭取货码提取</p>
+    <div class="hero">
+      <div class="hero-glow g1"></div><div class="hero-glow g2"></div>
+      <div class="logo">📦</div>
+      <h1>优选资料铺 <span class="accent">· 资料取货</span></h1>
+      <p>付款后凭取货码自助提取 · 全自动秒发</p>
+      <div class="chips"><span>📚 9 件商品</span><span>⚡ 付款秒发</span><span>🔗 链接永久有效</span></div>
+    </div>
   </header>
   <div class="searchbox"><input id="search" type="text" placeholder="🔍 输入商品名搜索…" /></div>
   <div class="notice">付款后请输入卖家提供的取货码，即可复制您的网盘链接。链接长期有效，如失效请联系卖家秒补。</div>
