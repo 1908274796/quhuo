@@ -1,0 +1,8 @@
+# 白名单模式：只允许公开文件进仓库（保护取货码/链接总库等一切秘密）
+/*
+
+!.gitignore
+!index.html
+!detail-*.html
+!img/
+!img/**
