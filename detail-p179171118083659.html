@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>妈妈的日记 · 优选资料铺</title>
+<style>
+:root { --bg:#FBF7F0; --card:#FFFFFF; --ink:#3D3229; --sub:#9A8A72; --brand:#C96F2B; --brand2:#D8923B; --ok:#3E8E5A; --line:#E8D9BC; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 16px 16px 48px; }
+.back { display:inline-block; margin: 14px 0 4px; font-size: 13px; color: var(--sub); text-decoration: none; }
+.head { text-align:center; padding: 6px 0 14px; }
+.head .icon { font-size: 44px; }
+.head h1 { font-size: 20px; margin: 6px 0 4px; line-height: 1.4; }
+.head .desc { font-size: 12.5px; color: var(--sub); margin: 0; }
+.gallery { display:flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 10px; -webkit-overflow-scrolling: touch; }
+.gallery img { width: 78%; flex-shrink: 0; border-radius: 14px; border: 1.5px solid var(--line); scroll-snap-align: center; background:#fff; max-height: 420px; object-fit: cover; }
+.intro { background:#fff; border:1.5px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; }
+.intro p { font-size: 13.5px; color:#455A64; line-height: 1.95; margin: 0 0 10px; text-align: justify; }
+.intro p:last-child { margin-bottom: 0; }
+.gatebox { background: var(--card); border: 1.5px solid var(--line); border-radius: 16px; padding: 16px; box-shadow: 0 2px 8px rgba(138,110,60,.06); }
+.gate { display:flex; gap: 8px; }
+.code-input { flex:1; border:1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; font-size: 15px; letter-spacing: 2px; background:#FFFDF8; color:var(--ink); }
+.code-input:focus { outline:none; border-color: var(--brand2); }
+.btn-get { border:none; border-radius: 10px; padding: 10px 22px; font-size: 14.5px; font-weight: 700; color:#fff; background: linear-gradient(135deg, var(--brand), var(--brand2)); cursor:pointer; }
+.result { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.channel { margin-bottom: 12px; }
+.part { background:#FFFCF5; border:1px solid #F0E4CC; border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+.part-head { display:flex; align-items:center; gap: 8px; margin-bottom: 6px; }
+.part-name { font-size: 13.5px; font-weight: 700; color:#0C4A6E; flex:1; }
+.url-line { font-size: 12.5px; color:#1D6FBF; word-break: break-all; line-height: 1.6; }
+.code-line { font-size: 12.5px; color: var(--ink); margin-top: 5px; }
+.qr { display:block; width: 130px; height: 130px; margin: 8px auto 2px; border: 6px solid #fff; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+.qr-tip { text-align:center; font-size: 10.5px; color: var(--sub); margin: 0 0 4px; }
+.pwd { background:#F0F7F1; border:1px solid #CBE3D1; border-radius: 10px; padding: 9px 12px; font-size: 12.5px; margin-bottom: 10px; }
+.pwd b { color: var(--ok); letter-spacing: 1px; }
+.tut { border:1px dashed var(--line); border-radius: 10px; margin-top: 4px; }
+.tut summary { font-size: 12.5px; font-weight: 700; color:#7A6248; padding: 9px 12px; cursor:pointer; }
+.tut-body { font-size: 12px; color:#5A4A38; line-height: 2; padding: 0 12px 10px; }
+.copy { border:1px solid var(--brand2); color: var(--brand); background:#fff; border-radius: 8px; padding: 4px 10px; font-size: 12px; cursor:pointer; flex-shrink:0; }
+footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 26px; line-height: 1.9; }
+.toast { position:fixed; left:50%; bottom: 12%; transform: translateX(-50%); background: rgba(61,50,41,.92); color:#fff; font-size: 13.5px; padding: 9px 20px; border-radius: 22px; opacity:0; transition: opacity .25s; pointer-events:none; }
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 返回取货列表</a>
+  <div class="head">
+    <div class="icon">📔</div>
+    <h1>妈妈的日记</h1>
+    <p class="desc">百度网盘 · 即买即取</p>
+  </div>
+  
+  <div class="intro"><p>《妈妈的日记》电子资料，拍下后凭取货码自助提取，无需等待发货。</p><p>资料为电子版，百度网盘交付：打开本页扫描/复制链接 → 输入提取码 → 转存或下载即可。手机、平板、电脑都能看。</p><p>资料仅供个人学习使用，请勿二次传播。使用中有任何问题，闲鱼上随时联系我，看到必回。</p></div>
+  <div class="gatebox" data-code="771271">
+    <div class="gate">
+      <input type="tel" inputmode="numeric" maxlength="8" placeholder="输入取货码" class="code-input" />
+      <button class="btn-get">取货</button>
+    </div>
+    <div class="result" hidden>
+      <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">百度网盘</span><button class="copy" data-copy="https://pan.baidu.com/s/1ECFZ8nLZzOufpwKRyE4WVg">复制链接</button></div>
+          <div class="url-line">https://pan.baidu.com/s/1ECFZ8nLZzOufpwKRyE4WVg</div>
+          <div class="code-line">提取码：见卖家发给您的「取货图」</div>
+          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
+        </div></div>
+      
+      <details class="tut"><summary>📖 解压/使用教程（点开看步骤）</summary><div class="tut-body">分卷资料解压教程：①把本页显示的所有分卷全部下载下来；<br>②所有分卷放到同一个文件夹里；<br>③把分卷文件的后缀（.jpg 或 .1x1 等）改成 .zip（必须是 zip，改别的会提示密码错误）；<br>④用解压软件以 zip 方式解压，输入解压密码即可。手机端推荐用「解压专家」App，电脑端用 WinRAR/7-Zip。</div></details>
+    </div>
+  </div>
+  <footer>链接长期有效 · 遇问题请闲鱼联系卖家<br>本页面为取货专用页，请勿外传</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1600);
+}
+document.querySelectorAll('.card, .gatebox').forEach(card => {
+  const gate = card.querySelector('.gate');
+  if (!gate) return;
+  const input = card.querySelector('.code-input');
+  const btn = card.querySelector('.btn-get');
+  const result = card.querySelector('.result');
+  let fails = 0, lockTimer = null;
+  function tryGet() {
+    if (lockTimer) return;
+    if (input.value.trim() === card.dataset.code) { result.hidden = false; gate.style.display = 'none'; }
+    else {
+      fails++;
+      let err = card.querySelector('.err');
+      if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:8px 0 0'; gate.after(err); }
+      if (fails >= 5) {
+        let left = 60;
+        err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+        input.disabled = true; btn.disabled = true;
+        lockTimer = setInterval(() => { left--; if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; } else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试'; }, 1000);
+      } else err.textContent = '取货码不对，请核对卖家发给您的取货码（还可试 ' + (5 - fails) + ' 次）';
+    }
+  }
+  btn.addEventListener('click', tryGet);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryGet(); });
+});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  const text = btn.dataset.copy;
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => toast('已复制')).catch(() => fallback(text));
+  else fallback(text);
+  function fallback(t) {
+    const ta = document.createElement('textarea');
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); toast('已复制'); } catch (_) { toast('请长按文字手动复制'); }
+    ta.remove();
+  }
+});
+</script>
+</body>
+</html>
