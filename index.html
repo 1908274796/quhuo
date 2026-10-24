@@ -35,6 +35,12 @@ header { padding: 14px 0 0; }
 .detail-link { margin-left: auto; flex-shrink: 0; font-size: 12px; font-weight: 700; color: var(--brand); text-decoration: none; border: 1px solid var(--brand2); border-radius: 16px; padding: 4px 12px; background: #fff; }
 .card-head .icon { font-size: 32px; width: 56px; height: 56px; border-radius: 16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background: linear-gradient(135deg, hsl(var(--h) 55% 80% / .4), hsl(var(--h) 60% 72% / .55)); border: 1px solid hsl(var(--h) 50% 66% / .4); }
 .card-head h2 { font-size: 16px; font-weight: 800; margin: 0 0 3px; line-height: 1.4; color: #2E3A33; }
+.portal { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 34px 22px; margin-top: 8px; text-align: center; box-shadow: 0 2px 10px rgba(90,100,80,.07); animation: fadeUp .45s ease both; }
+.portal-icon { font-size: 42px; }
+.portal h2 { font-size: 20px; font-weight: 800; margin: 14px 0 4px; color: #2E3A33; }
+.portal-sub { font-size: 12.5px; color: var(--sub); margin: 0 0 20px; }
+.portal .gate { max-width: 430px; margin: 0 auto; }
+.portal .err { color:#C0392B; font-size:12.5px; margin:10px 0 0; text-align:left; }
 .card-head .desc { font-size: 12px; color: var(--sub); margin: 0; }
 .gate { display:flex; gap: 8px; }
 .code-input { flex:1; border:1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 15px; letter-spacing: 2px; background:#FCFDF9; color:var(--ink); }
@@ -77,122 +83,50 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px
       </div>
     </div>
   </header>
-  <div class="searchbox"><input id="search" type="text" placeholder="🔍 搜索…" /></div>
-  <div class="notice">点击上方按钮复制内容，如遇问题请直接留言。</div>
-  
-<article class="card" style="--d:6" id="pd-p1791267309800" data-id="p1791267309800" data-code="a1b2" data-search="救生员狂热 整理收录 · 内容较多 救生员">
-  <div class="card-head"><span class="icon" style="--h:127">📚</span>
-    <div><h2>救生员狂热</h2><p class="desc">整理收录 · 内容较多</p></div>
-    
+  <div class="portal">
+    <div class="portal-icon">🔑</div>
+    <h2>输入取货码</h2>
+    <p class="portal-sub">查看您购买的专属内容</p>
+    <div class="gate">
+      <input type="text" inputmode="text" maxlength="8" placeholder="请输入取货码" class="code-input" />
+      <button class="btn-get">查看</button>
+    </div>
+    <p class="err"></p>
   </div>
-  <div class="gate">
-    <input type="text" inputmode="text" maxlength="6" placeholder="输入验证码" class="code-input" />
-    <button class="btn-get">查看</button>
-  </div>
-  <div class="result" hidden>
-    <div class="channel">
-        <div class="part">
-          <div class="part-head"><span class="part-name">内容 · 第 1 部分</span><button class="copy" data-enc="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9jZDQ2YTI4NGJiYjM=">复制</button></div>
-          <div class="url-line" data-enc-url="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9jZDQ2YTI4NGJiYjM="></div>
-          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
-        </div>
-
-        <div class="part">
-          <div class="part-head"><span class="part-name">内容 · 第 2 部分</span><button class="copy" data-enc="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9kYjA5ZTUwMDc4MmM=">复制</button></div>
-          <div class="url-line" data-enc-url="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9kYjA5ZTUwMDc4MmM="></div>
-          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
-        </div></div>
-    <div class="pwd">安全码：<b class="pwd-v">niuniuhao</b><button class="copy" data-copy="niuniuhao">复制</button></div>
-    
-  </div>
-</article>
-
-<article class="card" style="--d:7" id="pd-p179171118083659" data-id="p179171118083659" data-code="n7k3" data-search="妈妈的日记 自存分享 · 随缘更新 妈妈的">
-  <div class="card-head"><span class="icon" style="--h:174">📔</span>
-    <div><h2>妈妈的日记</h2><p class="desc">自存分享 · 随缘更新</p></div>
-    <a class="detail-link" href="detail-p179171118083659.html">详情 ▸</a>
-  </div>
-  <div class="gate">
-    <input type="text" inputmode="text" maxlength="6" placeholder="输入验证码" class="code-input" />
-    <button class="btn-get">查看</button>
-  </div>
-  <div class="result" hidden>
-    <div class="channel">
-        <div class="part">
-          <div class="part-head"><span class="part-name">内容</span><button class="copy" data-enc="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUVDRlo4bkxaek91ZnB3S1J5RTRXVmc=">复制</button></div>
-          <div class="url-line" data-enc-url="aHR0cHM6Ly9wYW4uYmFpZHUuY29tL3MvMUVDRlo4bkxaek91ZnB3S1J5RTRXVmc="></div>
-          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
-        </div></div>
-    <div class="pwd">安全码：<b class="pwd-v">niuniuhao</b><button class="copy" data-copy="niuniuhao">复制</button></div>
-    
-  </div>
-</article>
-  
-  <p class="no-match" id="nomatch">没有找到匹配的内容</p>
-  <div style="background:#FAF8F2;border:1.5px solid #E4DED0;border-radius:14px;padding:14px 16px;margin:6px 0 20px;font-size:13px;color:#6B6F63;line-height:2;text-align:center">添加时备注一下来意，看到会回<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px"><span>QQ：<b style="color:#2E3A33;letter-spacing:.5px">2533442398</b></span><button class="copy" data-copy="2533442398" style="border:1px solid var(--brand2);color:var(--brand);background:#fff;border-radius:8px;padding:3px 10px;font-size:12px;cursor:pointer">复制</button></div><div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px"><span>微信：<b style="color:#2E3A33;letter-spacing:.5px">hao1908274796</b></span><button class="copy" data-copy="hao1908274796" style="border:1px solid var(--brand2);color:var(--brand);background:#fff;border-radius:8px;padding:3px 10px;font-size:12px;cursor:pointer">复制</button></div><div style="margin-top:8px">随缘更新，常回来看看 🌱</div></div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const __pid = new URLSearchParams(location.search).get('p');
-if (__pid) {
-  setTimeout(() => {
-    const card = document.getElementById('pd-' + __pid);
-    if (card) {
-      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      card.style.boxShadow = '0 0 0 3px #6E8B6F';
-      setTimeout(() => card.style.boxShadow = '', 3000);
-    }
-  }, 400);
-}
-document.getElementById('search').addEventListener('input', function() {
-  const q = this.value.trim().toLowerCase();
-  let shown = 0;
-  document.querySelectorAll('.card').forEach(c => {
-    const hit = !q || c.textContent.toLowerCase().includes(q);
-    c.style.display = hit ? '' : 'none';
-    if (hit) shown++;
-  });
-  document.getElementById('nomatch').style.display = shown ? 'none' : 'block';
-});
-function dec(b) { try { return decodeURIComponent(escape(atob(b))); } catch (e) { return ''; } }
+const MAP = JSON.parse(atob('__MAPB64__'));
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 1600);
 }
-document.querySelectorAll('.card').forEach(card => {
-  const gate = card.querySelector('.gate');
-  const input = card.querySelector('.code-input');
-  const btn = card.querySelector('.btn-get');
-  const result = card.querySelector('.result');
-  let fails = 0, lockTimer = null;
-  function tryGet() {
-    if (lockTimer) { return; }
-    if (input.value.trim() === card.dataset.code) {
-      result.hidden = false; gate.style.display = 'none';
-      result.querySelectorAll('.url-line').forEach(ln => { const e = ln.dataset.encUrl; if (e) ln.textContent = dec(e); });
-    } else {
-      fails++;
-      let err = card.querySelector('.err');
-      if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:8px 0 0'; gate.after(err); }
-      if (fails >= 5) {
-        let left = 60;
-        err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
-        input.disabled = true; btn.disabled = true;
-        lockTimer = setInterval(() => {
-          left--;
-          if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; }
-          else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
-        }, 1000);
-      } else {
-        err.textContent = '验证码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）';
-      }
-    }
-  }
-  btn.addEventListener('click', tryGet);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryGet(); });
-});
+const input = document.querySelector('.code-input');
+const btn = document.querySelector('.btn-get');
+let fails = 0, lockTimer = null;
+function tryGet() {
+  if (lockTimer) return;
+  const code = input.value.trim().toLowerCase();
+  const hit = MAP[code];
+  if (hit) { location.href = 'detail-' + hit.id + '.html?code=' + encodeURIComponent(hit.code); return; }
+  fails++;
+  let err = document.querySelector('.err');
+  if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:10px 0 0;text-align:left'; document.querySelector('.portal').after(err); }
+  if (fails >= 5) {
+    let left = 60;
+    err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+    input.disabled = true; btn.disabled = true;
+    lockTimer = setInterval(() => {
+      left--;
+      if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; }
+      else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+    }, 1000);
+  } else err.textContent = '取货码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）';
+}
+btn.addEventListener('click', tryGet);
+input.addEventListener('keydown', e => { if (e.key === 'Enter') tryGet(); });
 document.addEventListener('click', e => {
   const btn = e.target.closest('.copy');
   if (!btn) return;
