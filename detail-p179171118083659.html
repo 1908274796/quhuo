@@ -81,14 +81,16 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   
   <div class="intro glass"><p>《妈妈的日记》整理收录，喜欢就留着看。</p><p>内容为个人整理，点开本页复制或扫码即可获取。手机、平板、电脑都能看。</p><p>仅供个人收藏使用，请勿二次传播。使用中有任何问题，随时留言联系我，看到会回。<br>📌 温馨提示：内容较大（13GB），建议电脑端下载，手机下载可能较慢。</p></div>
   <div class="gatebox glass" id="gatebox">
-    <div class="lock-ico">🔐</div>
-    <div class="gate-title">输入取货码解锁</div>
-    <div class="gate-sub">取货码由卖家提供（见闲鱼发货消息）</div>
-    <div class="gate">
-      <input id="code-input" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="····" class="code-input" />
-      <button id="unlock" class="btn-unlock">解 锁</button>
+    <div id="gateform">
+      <div class="lock-ico">🔐</div>
+      <div class="gate-title">输入取货码解锁</div>
+      <div class="gate-sub">取货码由卖家提供（见闲鱼发货消息）</div>
+      <div class="gate">
+        <input id="code-input" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="····" class="code-input" />
+        <button id="unlock" class="btn-unlock">解 锁</button>
+      </div>
+      <p class="err" id="err"></p>
     </div>
-    <p class="err" id="err"></p>
     <div id="result" hidden>
       <div id="cargo"></div>
       <div class="pwd-row" id="safeword-row" hidden>安全码：<b></b><button class="copy">复制</button></div>
@@ -97,7 +99,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-p179171118083711.html"><span class="rec-icon">📦</span><span class="rec-name">宗门PSD模板</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2404,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"9SDKQ9/UYqqFAOxWfDCMsw==","i":"s+vnkhYWFEPK3Rkb","c":"6JULYaF/Q6Tny+KXrUb/j6J1np7HiJWnHKOyYxcpDsL4fjyC0q9lXf/wXTJKh+aXByP7wJ/r6GZJaRKTfFEFcGCQfGmIZD7RJk1zwJpiZhTBmXApwsPSAXCJCDr9szLnupt4xycb+mS0xJCf5Z4jbt+yrg8jkQGAzRc2W2fuUg+AV92bFmkH5IiXDGJZPAAZhH0VKYL/m9dPyHNufB7nJtn/bOdp5UoWnK4oxlqmu1uLxisiF7Fh"};
+window.__PAY__ = {"s":"PQPsxkNPs4Sky9CVUGMyBQ==","i":"eJ2K18zmxTgGEkLe","c":"cWpYwXKgA5Vyf9IH3mwVOZcM4Ol6Bf6nmLsTajjqCT3J2jZXmRnjsnZYJ8zni9XPlj9hhW1cpzRCNyTuz8IG+8fknOk88Uo6kdBjiNKPamKNDGbhhihHV5gJpEBPa/EcVrogRqmBr8DnJr1OfgeI6LfNgX+0DgQGH5Y6+d1ycFt6Kf+Ogmx2+L7VizBrOl77/upoSWnIC+YHp9+Lfpn3J0R8JajmOwlZOXvFz8X0pPKPrdWu7KtR"};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2459,7 +2461,7 @@ document.addEventListener('click', function (e) {
       if (data.extractPassword) { pw.hidden = false; pw.querySelector('b').textContent = data.extractPassword; pw.querySelector('.copy').dataset.copy = data.extractPassword; }
       else { pw.hidden = true; }
     }
-    $('gatebox').style.display = 'none';
+    $('gateform').style.display = 'none';
     var res = $('result'); res.hidden = false; res.classList.add('unlocked');
   }
   function fail(msg) { var err = $('err'); err.textContent = msg; err.classList.add('shake'); setTimeout(function () { err.classList.remove('shake'); }, 500); }
