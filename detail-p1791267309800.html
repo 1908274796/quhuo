@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>救生员狂热 · 我的收藏夹</title>
+<style>
+:root { --bg:#F5F3ED; --card:#FFFFFF; --ink:#2E3A33; --sub:#8B9086; --brand:#4E6E58; --brand2:#6E8B6F; --ok:#5B7C68; --line:#E4DED0; --warm:#A98A6A; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
+.wrap { max-width: 640px; margin: 0 auto; padding: 16px 16px 48px; }
+.back { display:inline-block; margin: 14px 0 4px; font-size: 13px; color: var(--sub); text-decoration: none; }
+.head { text-align:center; margin: 0 -16px 14px; padding: 26px 20px 20px; background: linear-gradient(165deg, #EDF2E8 0%, #DCE7D8 45%, #CBDDCB 100%); border-radius: 0 0 24px 24px; color:#33413A; box-shadow: 0 2px 10px rgba(90,110,90,.1); }
+.head .icon { font-size: 44px; width: 84px; height: 84px; border-radius: 24px; display:flex; align-items:center; justify-content:center; margin: 0 auto 10px; background: rgba(255,255,255,.6); border: 1px solid rgba(78,110,88,.2); }
+.head h1 { font-size: 21px; font-weight: 800; margin: 6px 0 4px; line-height: 1.4; color:#2E3A33; }
+.head .desc { font-size: 12.5px; color:#6B7A6C; margin: 0; }
+.gallery { display:flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 10px; -webkit-overflow-scrolling: touch; }
+.gallery img { width: 78%; flex-shrink: 0; border-radius: 16px; border: 1.5px solid var(--line); scroll-snap-align: center; background:#fff; max-height: 420px; object-fit: cover; }
+.intro { background:#fff; border:1.5px solid var(--line); border-radius: 16px; padding: 14px 16px; margin-bottom: 14px; }
+.intro p { font-size: 13.5px; color:#455A54; line-height: 1.95; margin: 0 0 10px; text-align: justify; }
+.intro p:last-child { margin-bottom: 0; }
+.recs { margin-top: 14px; }
+.recs-title { font-size: 14px; font-weight: 800; color:#2E3A33; margin: 0 0 10px; }
+.recs-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rec-card { display:block; background:#fff; border:1.5px solid var(--line); border-radius: 14px; padding: 14px 10px; text-align:center; text-decoration:none; color:var(--ink); transition: transform .15s ease; }
+.rec-card:active { transform: scale(.97); }
+.rec-icon { display:block; font-size: 28px; margin-bottom: 6px; }
+.rec-name { display:block; font-size: 12px; font-weight: 700; line-height: 1.5; min-height: 36px; }
+.rec-go { display:block; font-size: 10.5px; color: var(--brand); margin-top: 5px; font-weight: 700; }
+.recs-tip { font-size: 10.5px; color: var(--sub); text-align:center; margin: 10px 0 0; }
+.gatebox { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 16px; box-shadow: 0 2px 8px rgba(90,100,80,.06); }
+.gate { display:flex; gap: 8px; }
+.code-input { flex:1; border:1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 15px; letter-spacing: 2px; background:#FCFDF9; color:var(--ink); }
+.code-input:focus { outline:none; border-color: var(--brand2); }
+.btn-get { border:none; border-radius: 12px; padding: 11px 24px; font-size: 15px; font-weight: 800; color:#fff; background: linear-gradient(135deg, var(--brand), var(--brand2)); cursor:pointer; box-shadow: 0 3px 10px rgba(78,110,88,.25); }
+.result { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; }
+.channel { margin-bottom: 12px; }
+.part { background:#FAFAF4; border:1px solid #E8E2D2; border-left:3px solid var(--brand2); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
+.part-head { display:flex; align-items:center; gap: 8px; margin-bottom: 6px; }
+.part-name { font-size: 13.5px; font-weight: 700; color:#3E5A4B; flex:1; }
+.url-line { font-size: 12.5px; color:#33634F; word-break: break-all; line-height: 1.6; }
+.code-line { font-size: 12.5px; color: var(--ink); margin-top: 5px; }
+.qr { display:block; width: 130px; height: 130px; margin: 8px auto 2px; border: 6px solid #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
+.qr-tip { text-align:center; font-size: 10.5px; color: var(--sub); margin: 0 0 4px; }
+.pwd { background:#EFF4EC; border:1px solid #CFE0D0; border-radius: 10px; padding: 9px 12px; font-size: 12.5px; margin-bottom: 10px; }
+.pwd b { color: var(--ok); letter-spacing: 1px; }
+.tut { border:1px dashed var(--line); border-radius: 10px; margin-top: 4px; }
+.tut summary { font-size: 12.5px; font-weight: 700; color:#6B6F63; padding: 9px 12px; cursor:pointer; }
+.tut-body { font-size: 12px; color:#5A5F56; line-height: 2; padding: 0 12px 10px; }
+.copy { border:1px solid var(--brand2); color: var(--brand); background:#fff; border-radius: 9px; padding: 4px 10px; font-size: 12px; cursor:pointer; flex-shrink:0; }
+footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 26px; line-height: 1.9; }
+.toast { position:fixed; left:50%; bottom: 12%; transform: translateX(-50%); background: rgba(46,58,51,.92); color:#fff; font-size: 13.5px; padding: 9px 20px; border-radius: 22px; opacity:0; transition: opacity .25s; pointer-events:none; }
+.toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="index.html">← 返回</a>
+  <div class="head">
+    <div class="icon" style="--h:127">📚</div>
+    <h1>救生员狂热</h1>
+    <p class="desc">整理收录 · 内容较多</p>
+  </div>
+  
+  <div class="intro"><p>内容为个人整理，如有问题可留言联系我。</p></div>
+  <div class="gatebox" data-code="a1b2">
+    <div class="gate">
+      <input type="text" inputmode="text" maxlength="6" placeholder="输入验证码" class="code-input" />
+      <button class="btn-get">查看</button>
+    </div>
+    <div class="result" hidden>
+      <div class="channel">
+        <div class="part">
+          <div class="part-head"><span class="part-name">内容 · 第 1 部分</span><button class="copy" data-enc="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9jZDQ2YTI4NGJiYjM=">复制</button></div>
+          <div class="url-line" data-enc-url="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9jZDQ2YTI4NGJiYjM="></div>
+          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
+        </div>
+
+        <div class="part">
+          <div class="part-head"><span class="part-name">内容 · 第 2 部分</span><button class="copy" data-enc="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9kYjA5ZTUwMDc4MmM=">复制</button></div>
+          <div class="url-line" data-enc-url="aHR0cHM6Ly9wYW4ucXVhcmsuY24vcy9kYjA5ZTUwMDc4MmM="></div>
+          <img class="qr" src="data:image/png;base64,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" alt="二维码"/><p class="qr-tip">手机长按/截屏扫一扫</p>
+        </div></div>
+      <div class="pwd">安全码：<b class="pwd-v">niuniuhao</b><button class="copy" data-copy="niuniuhao">复制</button></div>
+      <div style="background:#F6F1E7;border:1.5px solid #E8D9BC;border-radius:14px;padding:12px 14px;margin-top:12px;font-size:13px;color:#7A6248;line-height:2;text-align:center"><b style="color:#C96F2B">📣 售后与交流</b><br>添加时备注一下来意，看到会回<div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px"><span>QQ：<b style="color:#3D3229;letter-spacing:.5px">2533442398</b></span><button class="copy" data-copy="2533442398" style="border:1px solid var(--brand2);color:var(--brand);background:#fff;border-radius:8px;padding:3px 10px;font-size:12px;cursor:pointer">复制</button></div><div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-top:6px"><span>微信：<b style="color:#3D3229;letter-spacing:.5px">hao1908274796</b></span><button class="copy" data-copy="hao1908274796" style="border:1px solid var(--brand2);color:var(--brand);background:#fff;border-radius:8px;padding:3px 10px;font-size:12px;cursor:pointer">复制</button></div><div style="margin-top:6px">随缘更新，常回来看看 🌱</div></div>
+    </div>
+  </div>
+  <div class="recs">
+    <div class="recs-title">🔥 猜你喜欢</div>
+    <div class="recs-grid"><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📔</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
+  </div>
+  <footer>记录生活，分享美好 · 谢谢光临</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+function dec(b) { try { return decodeURIComponent(escape(atob(b))); } catch (e) { return ''; } }
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1600);
+}
+const __qc = (new URLSearchParams(location.search).get('code') || '').toLowerCase();
+if (__qc) {
+  setTimeout(() => {
+    const gb = document.querySelector('.gatebox');
+    if (gb && __qc === (gb.dataset.code || '').toLowerCase()) {
+      gb.querySelector('.result').hidden = false;
+      gb.querySelector('.gate').style.display = 'none';
+    }
+  }, 250);
+}
+document.querySelectorAll('.card, .gatebox').forEach(card => {
+  const gate = card.querySelector('.gate');
+  if (!gate) return;
+  const input = card.querySelector('.code-input');
+  const btn = card.querySelector('.btn-get');
+  const result = card.querySelector('.result');
+  let fails = 0, lockTimer = null;
+  function tryGet() {
+    if (lockTimer) return;
+    if (input.value.trim().toLowerCase() === (card.dataset.code || '').toLowerCase()) {
+      result.hidden = false; gate.style.display = 'none';
+      result.querySelectorAll('.url-line').forEach(ln => { const e = ln.dataset.encUrl; if (e) ln.textContent = dec(e); });
+    }
+    else {
+      fails++;
+      let err = card.querySelector('.err');
+      if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:8px 0 0'; gate.after(err); }
+      if (fails >= 5) {
+        let left = 60;
+        err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+        input.disabled = true; btn.disabled = true;
+        lockTimer = setInterval(() => { left--; if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; } else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试'; }, 1000);
+      } else err.textContent = '验证码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）';
+    }
+  }
+  btn.addEventListener('click', tryGet);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') tryGet(); });
+});
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.copy');
+  if (!btn) return;
+  const text = btn.dataset.copy !== undefined ? btn.dataset.copy : dec(btn.dataset.enc || '');
+  if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => toast('已复制')).catch(() => fallback(text));
+  else fallback(text);
+  function fallback(t) {
+    const ta = document.createElement('textarea');
+    ta.value = t; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); toast('已复制'); } catch (_) { toast('请长按文字手动复制'); }
+    ta.remove();
+  }
+});
+</script>
+</body>
+</html>
