@@ -4,142 +4,114 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>我的收藏夹</title>
-<style>
-:root { --bg:#F5F3ED; --card:#FFFFFF; --ink:#2E3A33; --sub:#8B9086; --brand:#4E6E58; --brand2:#6E8B6F; --ok:#5B7C68; --line:#E4DED0; --warm:#A98A6A; }
-* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; }
-.wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 48px; }
-header { padding: 14px 0 0; }
-.hero { position: relative; margin: 0 -16px 14px; overflow: hidden; border-radius: 0 0 24px 24px; box-shadow: 0 3px 14px rgba(70,80,60,.14); }
-.hero-img { display: block; width: 100%; height: 215px; object-fit: cover; }
-.hero-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 20px 16px; background: linear-gradient(to top, rgba(38,56,46,.6) 0%, rgba(38,56,46,.26) 55%, rgba(38,56,46,0) 100%); color: #fff; }
-.hero h1 { font-size: 23px; font-weight: 800; margin: 0 0 3px; letter-spacing: .5px; text-shadow: 0 1px 6px rgba(0,0,0,.32); }
-.hero p { font-size: 12.5px; color: rgba(255,255,255,.92); margin: 0; text-shadow: 0 1px 4px rgba(0,0,0,.28); }
-.searchbox { position: sticky; top: 0; z-index: 50; margin: 0 -16px 14px; padding: 8px 16px; background: rgba(245,243,237,.96); backdrop-filter: blur(4px); box-shadow: 0 2px 8px rgba(120,110,80,.08); }
-.searchbox input { width: 100%; border: 1.5px solid var(--line); border-radius: 24px; padding: 11px 18px; font-size: 14px; background: #fff; color: var(--ink); box-shadow: inset 0 1px 3px rgba(0,0,0,.03); }
-.searchbox input:focus { outline: none; border-color: var(--brand2); }
-.no-match { text-align: center; color: var(--sub); font-size: 13px; padding: 30px 0; display: none; }
-.rail-title { font-size: 15px; font-weight: 800; color:#2E3A33; margin: 4px 0 10px; }
-.rail-title span { font-size: 11px; color: var(--brand); font-weight: 700; }
-.rail { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; -webkit-overflow-scrolling: touch; }
-.rail-card { flex: 0 0 132px; background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 12px 10px; text-align: center; text-decoration: none; color: var(--ink); border-top: 3px solid hsl(var(--rh) 55% 72%); }
-.rail-icon { display: block; font-size: 30px; margin-bottom: 6px; }
-.rail-name { display: block; font-size: 11.5px; font-weight: 700; line-height: 1.45; min-height: 34px; }
-.rail-go { display: block; font-size: 10.5px; color: var(--brand); margin-top: 5px; font-weight: 700; }
-.notice { background:#F1F4EC; border-left: 3px solid var(--brand2); border-radius: 12px; padding: 10px 14px; font-size: 12px; color:#5C6B58; margin-bottom: 16px; line-height:1.8; }
-.card { position: relative; background: var(--card); border: 1.5px solid var(--line); border-top: 3px solid hsl(var(--h) 55% 72%); border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(90,100,80,.07); transition: transform .15s ease, box-shadow .15s ease; animation: fadeUp .45s ease both; animation-delay: calc(var(--d, 0) * 60ms); overflow: hidden; }
-.card:active { transform: scale(.985); box-shadow: 0 1px 4px rgba(90,100,80,.08); }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.card-head { display:flex; gap: 12px; align-items:center; margin-bottom: 12px; }
-.detail-link { margin-left: auto; flex-shrink: 0; font-size: 12px; font-weight: 700; color: var(--brand); text-decoration: none; border: 1px solid var(--brand2); border-radius: 16px; padding: 4px 12px; background: #fff; }
-.card-head .icon { font-size: 32px; width: 56px; height: 56px; border-radius: 16px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background: linear-gradient(135deg, hsl(var(--h) 55% 80% / .4), hsl(var(--h) 60% 72% / .55)); border: 1px solid hsl(var(--h) 50% 66% / .4); }
-.card-head h2 { font-size: 16px; font-weight: 800; margin: 0 0 3px; line-height: 1.4; color: #2E3A33; }
-.portal { background: var(--card); border: 1.5px solid var(--line); border-radius: 18px; padding: 34px 22px; margin-top: 8px; text-align: center; box-shadow: 0 2px 10px rgba(90,100,80,.07); animation: fadeUp .45s ease both; }
-.portal-icon { font-size: 42px; }
-.portal h2 { font-size: 20px; font-weight: 800; margin: 14px 0 4px; color: #2E3A33; }
-.portal-sub { font-size: 12.5px; color: var(--sub); margin: 0 0 20px; }
-.portal .gate { max-width: 430px; margin: 0 auto; }
-.portal .err { color:#C0392B; font-size:12.5px; margin:10px 0 0; text-align:left; }
-.card-head .desc { font-size: 12px; color: var(--sub); margin: 0; }
-.gate { display:flex; gap: 8px; }
-.code-input { flex:1; border:1.5px solid var(--line); border-radius: 12px; padding: 10px 12px; font-size: 15px; letter-spacing: 2px; background:#FCFDF9; color:var(--ink); }
-.code-input:focus { outline:none; border-color: var(--brand2); }
-.btn-get { border:none; border-radius: 12px; padding: 10px 22px; font-size: 14.5px; font-weight: 700; color:#fff; background: linear-gradient(135deg, var(--brand), var(--brand2)); cursor:pointer; box-shadow: 0 3px 10px rgba(78,110,88,.25); }
-.btn-get:active { filter: brightness(.92); }
-.result { margin-top: 12px; border-top: 1px dashed var(--line); padding-top: 12px; }
-.channel { margin-bottom: 12px; }
-.channel:last-of-type { margin-bottom: 0; }
-.part { background:#FAFAF4; border:1px solid #E8E2D2; border-left:3px solid var(--brand2); border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
-.part-head { display:flex; align-items:center; gap: 8px; margin-bottom: 6px; }
-.part-name { font-size: 13.5px; font-weight: 700; color:#3E5A4B; flex:1; }
-.todo-badge { font-size: 10.5px; color:#fff; background:#B5A687; border-radius: 4px; padding: 1px 7px; }
-.todo-note { font-size: 12px; color: var(--sub); margin: 0; }
-.url-line { font-size: 12.5px; color:#33634F; word-break: break-all; line-height: 1.6; }
-.code-line { font-size: 12.5px; color: var(--ink); margin-top: 5px; }
-.code-line b { color: var(--brand); letter-spacing: 1px; }
-.qr { display:block; width: 130px; height: 130px; margin: 8px auto 2px; border: 6px solid #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.12); }
-.qr-tip { text-align:center; font-size: 10.5px; color: var(--sub); margin: 0 0 4px; }
-.pwd { background:#EFF4EC; border:1px solid #CFE0D0; border-radius: 10px; padding: 9px 12px; font-size: 12.5px; margin-bottom: 10px; }
-.pwd b { color: var(--ok); letter-spacing: 1px; }
-.tut { border:1px dashed var(--line); border-radius: 10px; margin-top: 4px; }
-.tut summary { font-size: 12.5px; font-weight: 700; color:#6B6F63; padding: 9px 12px; cursor:pointer; }
-.tut-body { font-size: 12px; color:#5A5F56; line-height: 2; padding: 0 12px 10px; }
-.copy { border:1px solid var(--brand2); color: var(--brand); background:#fff; border-radius: 9px; padding: 4px 10px; font-size: 12px; cursor:pointer; flex-shrink:0; }
-.copy:active { background:#EEF2E8; }
-footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 28px; line-height: 1.9; }
-.toast { position:fixed; left:50%; bottom: 12%; transform: translateX(-50%); background: rgba(46,58,51,.92); color:#fff; font-size: 13.5px; padding: 9px 20px; border-radius: 22px; opacity:0; transition: opacity .25s; pointer-events:none; }
-.toast.show { opacity: 1; }
+<title>优选资料铺</title>
+<style>// 共享基础样式
+:root { --bg:#0A0E14; --panel:rgba(17,22,29,.66); --ink:#E6EDF3; --sub:#8B98A5; --line:rgba(148,163,184,.16);
+  --v:#8B5CF6; --c:#22D3EE; --ok:#34D399; --err:#F87171; --mono:ui-monospace,'SF Mono',Consolas,monospace; }
+* { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background: radial-gradient(600px 400px at 15% -5%, rgba(139,92,246,.16), transparent 65%),
+              radial-gradient(700px 500px at 90% 110%, rgba(34,211,238,.12), transparent 65%); }
+body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
+  background-image: linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
+  background-size: 44px 44px; }
+.glass { background:var(--panel); border:1px solid var(--line); border-radius:18px;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05); }
+@keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+@keyframes glowShift { 0%,100% { opacity:.5; } 50% { opacity:1; } }
+@keyframes shake { 0%,100% { transform:translateX(0); } 25% { transform:translateX(-7px); } 75% { transform:translateX(7px); } }
+@keyframes unlockPop { 0% { opacity:0; transform:scale(.94) translateY(10px); } 100% { opacity:1; transform:none; } }
+.wrap { padding: 22px 18px 56px; }
+.hero { text-align:center; padding: 30px 0 26px; animation: fadeUp .6s ease both; }
+.hero .logo-tile { display:inline-flex; width:64px; height:64px; border-radius:20px; align-items:center; justify-content:center;
+  font-size:30px; background: linear-gradient(135deg, rgba(139,92,246,.25), rgba(34,211,238,.18));
+  border: 1px solid rgba(139,92,246,.35); box-shadow: 0 0 40px rgba(139,92,246,.25); }
+.hero h1 { font-size: 25px; font-weight: 800; margin: 14px 0 6px; letter-spacing: .5px;
+  background: linear-gradient(120deg, #E6EDF3, #8B5CF6 55%, #22D3EE); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero p { font-size: 13px; color: var(--sub); margin: 0 0 12px; }
+.hero .chips { display:flex; gap: 8px; justify-content:center; flex-wrap: wrap; }
+.hero .chips span { font-size: 11.5px; color: #A9B7C6; background: rgba(148,163,184,.1); border: 1px solid rgba(148,163,184,.2); border-radius: 20px; padding: 5px 12px; }
+.portal { background:var(--panel); border:1px solid var(--line); border-radius:20px; padding:30px 22px; margin-top:4px;
+  text-align:center; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  box-shadow:0 8px 32px rgba(0,0,0,.4); animation:fadeUp .55s ease both; }
+.portal-ico { font-size:38px; margin-bottom:8px; }
+.portal h2 { font-size:20px; font-weight:800; margin:10px 0 4px; color:#E6EDF3; }
+.portal-sub { font-size:12.5px; color:var(--sub); margin:0 0 20px; }
+.portal .gate { display:flex; gap:8px; max-width:430px; margin:0 auto; }
+.portal .code-input { flex:1; border:1px solid var(--line); border-radius:13px; padding:12px 14px; font-size:16px;
+  letter-spacing:3px; background:rgba(10,14,20,.6); color:var(--ink); font-family:var(--mono); text-transform:uppercase; }
+.portal .code-input:focus { outline:none; border-color:var(--c); box-shadow:0 0 0 3px rgba(34,211,238,.15), 0 0 24px rgba(34,211,238,.12); }
+.portal .btn-unlock { border:none; border-radius:13px; padding:12px 26px; font-size:14.5px; font-weight:800; color:#fff; cursor:pointer;
+  background:linear-gradient(135deg, var(--v), #6366F1 55%, var(--c)); box-shadow:0 4px 20px rgba(139,92,246,.35); }
+.portal .err { color:var(--err); font-size:12.5px; margin:10px 0 0; min-height:16px; }
+footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px; line-height: 1.9; }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="hero">
-      <img class="hero-img" src="img/hero.jpg" alt=""/>
-      <div class="hero-overlay">
-        <h1>我的收藏夹</h1>
-        <p>记录生活，分享美好</p>
-      </div>
-    </div>
-  </header>
+  <div class="hero">
+    <div class="logo-tile">📦</div>
+    <h1>优选资料铺</h1>
+    <p>程序员 / 效率 / 家庭 · 精选电子资料</p>
+    <div class="chips"><span>✦ 已上架 2 件</span><span>⚡ 自动发货</span><span>🔗 链接永久有效</span></div>
+  </div>
   <div class="portal">
-    <div class="portal-icon">🔑</div>
+    <div class="portal-ico">🔐</div>
     <h2>输入取货码</h2>
     <p class="portal-sub">查看您购买的专属内容</p>
     <div class="gate">
-      <input type="text" inputmode="text" maxlength="8" placeholder="请输入取货码" class="code-input" />
-      <button class="btn-get">查看</button>
+      <input id="code-input" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="····" class="code-input" />
+      <button id="unlock" class="btn-unlock">解 锁</button>
     </div>
-    <p class="err"></p>
+    <p class="err" id="err"></p>
   </div>
-  <footer>记录生活，分享美好 · 谢谢光临</footer>
+  <footer>记录生活，分享美好 · 谢谢光临<br>本站为取货入口，购买请 via 闲鱼</footer>
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const MAP = JSON.parse(atob('eyJhMWIyIjp7ImlkIjoicDE3OTEyNjczMDk4MDAiLCJjb2RlIjoiYTFiMiJ9LCJuN2szIjp7ImlkIjoicDE3OTE3MTExODA4MzY1OSIsImNvZGUiOiJuN2szIn19'));
+const MAP = JSON.parse(atob('__MAPB64__'));
+async function sha256hex(text) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 1600);
 }
-const input = document.querySelector('.code-input');
-const btn = document.querySelector('.btn-get');
+const input = document.getElementById('code-input');
+const unlockBtn = document.getElementById('unlock');
 let fails = 0, lockTimer = null;
-function tryGet() {
+function showErr(msg) { document.getElementById('err').textContent = msg; }
+async function tryUnlock() {
   if (lockTimer) return;
   const code = input.value.trim().toLowerCase();
-  const hit = MAP[code];
-  if (hit) { location.href = 'detail-' + hit.id + '.html?code=' + encodeURIComponent(hit.code); return; }
+  if (!code) { showErr('请输入取货码'); return; }
+  unlockBtn.textContent = '验证中…'; unlockBtn.disabled = true;
+  const h = await sha256hex(code);
+  unlockBtn.textContent = '解 锁'; unlockBtn.disabled = false;
+  const hit = MAP[h];
+  if (hit) { location.href = 'detail-' + hit + '.html?code=' + encodeURIComponent(code); return; }
   fails++;
-  let err = document.querySelector('.err');
-  if (!err) { err = document.createElement('p'); err.className = 'err'; err.style.cssText = 'color:#C0392B;font-size:12.5px;margin:10px 0 0;text-align:left'; document.querySelector('.portal').after(err); }
+  showErr('取货码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）');
   if (fails >= 5) {
     let left = 60;
-    err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
-    input.disabled = true; btn.disabled = true;
+    showErr('错误次数过多，请 ' + left + ' 秒后再试');
+    input.disabled = true; unlockBtn.disabled = true;
     lockTimer = setInterval(() => {
       left--;
-      if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; btn.disabled = false; err.textContent = ''; }
-      else err.textContent = '错误次数过多，请 ' + left + ' 秒后再试';
+      if (left <= 0) { clearInterval(lockTimer); lockTimer = null; fails = 0; input.disabled = false; unlockBtn.disabled = false; hideErr(); }
+      else showErr('错误次数过多，请 ' + left + ' 秒后再试');
     }, 1000);
-  } else err.textContent = '取货码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）';
-}
-btn.addEventListener('click', tryGet);
-input.addEventListener('keydown', e => { if (e.key === 'Enter') tryGet(); });
-document.addEventListener('click', e => {
-  const btn = e.target.closest('.copy');
-  if (!btn) return;
-  const text = btn.dataset.copy !== undefined ? btn.dataset.copy : dec(btn.dataset.enc || '');
-  if (navigator.clipboard) navigator.clipboard.writeText(text).then(() => toast('已复制')).catch(() => fallback(text));
-  else fallback(text);
-  function fallback(t) {
-    const ta = document.createElement('textarea');
-    ta.value = t; document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); toast('已复制'); } catch (_) { toast('请长按文字手动复制'); }
-    ta.remove();
   }
-});
+}
+function hideErr() { document.getElementById('err').textContent = ''; }
+unlockBtn.addEventListener('click', () => tryUnlock());
+input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
 </script>
+</div>
 </body>
 </html>
