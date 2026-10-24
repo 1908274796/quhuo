@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-java-book.html"><span class="rec-icon">📦</span><span class="rec-name">Java 面试八股文宝典 · 450道高频题</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"3jEE9778A/CyNkjG8T33YA==","i":"U4X+7D8Rktdht65E","c":"ooMwb45DpteDBpxcqCRndXvyH08y6Menw+oeUNsHs9T3Yc4BKOA/oXV7XIWd7P47f6Elx1A/8qWmcrgTUIraj7e5Cm/HM9CCIqrEfxxIrGsrnqMMcp7JxoV7vN2PF2X/DP8tW7idqMWIq+8xI9bN1z3Gcd0Xk+qHahqDB+k7PjZrJ2s0fmASjSnw0tXTHPYB1daGj8rMyWzJJwVeEL88kBKm8W/RtMNk8r53d6H3e2TiFFxl84T6"};
+window.__PAY__ = {"s":"7XI1DImXH+dqzn/tmg3Crw==","i":"9kz2LnSqYX87sZml","c":"zJDBTC/X7gmdGKd9hpps3JoQ1m0y4wD0xvcqUFkDqcjmVjLJtbKKoekuf3pw5w4remvalNm4QW13HWoWSrxQ+pvInk06kSIakL+MPxn3wyX9N6lsTU4ZOyi8urzHujjnEPRB9GoytEwHbU1wTyLDQQajdVHBfBpzATUj+Goizq9QcOaZYrZOn3MMwpXdUNjp5QWR2K8eU/iODYvqz2O4ANL0LslJ0tYcvNgug4kxYVPYeTSqXtlk"};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2477,7 +2477,7 @@ document.addEventListener('click', function (e) {
   $('unlock').addEventListener('click', function () { tryUnlock($('code-input').value); });
   $('code-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock($('code-input').value); });
   var qc = new URLSearchParams(location.search).get('code');
-  if (qc) { $('code-input').value = qc; tryUnlock(qc); }
+  if (qc) { $('code-input').value = qc; tryUnlock(qc.toLowerCase()); }
 })();
 
 </script>
