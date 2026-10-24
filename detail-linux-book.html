@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-recipe-book.html"><span class="rec-icon">📦</span><span class="rec-name">在家做饭指南 · 精选60道家常菜</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083711.html"><span class="rec-icon">📦</span><span class="rec-name">宗门PSD模板</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"iwiWZmoD399Vp5ZMKadLBw==","i":"VNxDtbTpZc1zrXE4","c":"Rm7/Rt7268/FW/6pHFGmmrgGFC3ruMm+XBRU6srIgukXXRZlTH99St/I0Mq6KkGYXt0AznKvxguINi9IXbfFr9xwdWlB/tUic9TvmaJyoq8yzWXzARergxNCudoUGxXUtLh5cWLYOZzu4L417a5qSofp0iryyOCNzVXCyL7PpbuTsp9SqccZSZjKUWOeiyPfXth42FM6KlCLkYUILn/ToA=="};
+window.__PAY__ = {"s":"PpoL0Luxb+x4hJTONEyBMw==","i":"OyBzvrOtS+urSQvr","c":"K/vKaX1qmoO4WypSNaT9R7O3qhDkYU4XS8aOZWThrz6fsSx/ubzSrFmtQDiNePTABR5oLTx5LDEuY/YcnAEvMlzpOUrwSYsNVgRXg8xq59oNm6SsXkL236UZXr1EOGelidrDFUAe28YBOqgY5w8AWaXRidJeeyd7Ax/HMDjV8+SDFZzTJfbCnxqgqp77Jx7j3UsIcA7gVaw3dwH8FQHT7w=="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2477,7 +2477,7 @@ document.addEventListener('click', function (e) {
   $('unlock').addEventListener('click', function () { tryUnlock($('code-input').value); });
   $('code-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock($('code-input').value); });
   var qc = new URLSearchParams(location.search).get('code');
-  if (qc) { $('code-input').value = qc; tryUnlock(qc); }
+  if (qc) { $('code-input').value = qc; tryUnlock(qc.toLowerCase()); }
 })();
 
 </script>
