@@ -19,8 +19,8 @@ body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:
 .back { display:inline-flex; align-items:center; gap:6px; margin:2px 0 10px; font-size:13px; color:var(--sub); text-decoration:none; }
 .head { text-align:center; padding:18px 0 6px; animation:fadeUp .55s ease both; }
 .head .icon { font-size:42px; width:84px; height:84px; border-radius:26px; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;
-  background: linear-gradient(135deg, hsl(250 60% 55% / .22), hsl(250 70% 60% / .12)); border: 1px solid hsl(250 60% 55% / .35);
-  box-shadow: 0 0 44px hsl(250 70% 55% / .22); }
+  background: linear-gradient(135deg, hsl(172 60% 55% / .22), hsl(172 70% 60% / .12)); border: 1px solid hsl(172 60% 55% / .35);
+  box-shadow: 0 0 44px hsl(172 70% 55% / .22); }
 .head h1 { font-size:22px; font-weight:800; margin:8px 0 5px; line-height:1.4; }
 .head .desc { font-size:12.5px; color:var(--sub); margin:0; }
 .gallery { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 10px; -webkit-overflow-scrolling:touch; }
@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-java-book.html"><span class="rec-icon">📦</span><span class="rec-name">Java 面试八股文宝典 · 450道高频题</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083711.html"><span class="rec-icon">📦</span><span class="rec-name">宗门PSD模板</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"dxSh4pAkHSZ6pMHsL6mZtQ==","i":"u9ORpUdWH3HBFiCt","c":"r7Sqd137u5cJSlKmBk89kR0ZKa5dPKlMHVX3e91Ro69ATx+hOk/u+UmdWblq8xPrI8bOqkOi3ooWxLzOtrxRLPFF/gal1qD9FdDarh0w/bAITvL+bxbV2A2MzY/g45riuWyLY7p1m2xCkQrshkHoMonLJ5otRAPI0tZM406zsVC2BYfGWHuInyn0zudy95UfaY6nSX8yS7jP/w+e++VyW9je5hZo2HjDeZbHMt4y82vhhU/wz/dsWqqMLRHImnRcWwHzTi/NGd9HkttBRtJQbb3wY/8VZuTuE+4zdrJsY5lrbCKc+mnmFHACHnyQ4ug="};
+window.__PAY__ = {"s":"CoTiz++Tl+4yWxbJWDRt0w==","i":"ohAq0/ASWTXAa/OJ","c":"uaRljLVAh9iblq1RFMfqHy9dLzOQGYJ7/UO2aQWhvTBFepsxMwvvEYMK4dtKUG4Nu0ooXCE2oQO/XuKMRgXQjACxBWzz1+U1lvyFpuUbfVNgLPhQ0Hk9f99p3nRQ9CTr75OvPtufK5qBEOpvG+a2vQ6hPvcUOJgm1vsGnP+vllukA4o1KoNqPb9T+Y7vaF+Tk375CSb75FxZQ9r4tON6ASLYWxmVxD13iDyHxBgUxDViz9CLf0ON37EWyV4gFY3tAEwBxfdwFMlyhv791M/bOf+0W3/02s8J38lJgV3D6swWt4Kz08DXSYx3DmWdf7g="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
