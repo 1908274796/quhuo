@@ -32,7 +32,7 @@ body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:
 .portal h2 { font-size:20px; font-weight:800; margin:10px 0 4px; color:#E6EDF3; }
 .portal-sub { font-size:12.5px; color:var(--sub); margin:0 0 20px; }
 .portal .gate { display:flex; gap:8px; max-width:430px; margin:0 auto; }
-.portal .code-input { flex:1; border:1px solid var(--line); border-radius:13px; padding:12px 14px; font-size:16px;
+.portal .code-input { flex:1; border:1px solid var(--line); border-radius:13px; padding:12px 14px; font-size:16px; text-transform:uppercase;
   letter-spacing:3px; background:rgba(10,14,20,.6); color:var(--ink); font-family:var(--mono); text-transform:uppercase; }
 .portal .code-input:focus { outline:none; border-color:var(--c); box-shadow:0 0 0 3px rgba(34,211,238,.15), 0 0 24px rgba(34,211,238,.12); }
 .portal .btn-unlock { border:none; border-radius:13px; padding:12px 26px; font-size:14.5px; font-weight:800; color:#fff; cursor:pointer;
@@ -63,7 +63,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const MAP = JSON.parse(atob('eyIwY2JiNzY4NTY2ZmZjOWVhMjQwY2NjYjYzMGJmMzAwYzdiMTE2OWEwYTE0ZDI5MGNjM2E3YjU1MTgwOTYwNmI4IjoiamF2YS1ib29rIiwiMTJhMjM5MzQwMzYwNmEyMjY4MTk4YzAzNTJjMjgyMjQxMDc5MWFmZmM2OTRkOTk4M2ViZGI0OWFhZjZmYjI5OSI6ImxpbnV4LWJvb2siLCJiNDQ0YWE3MzE4OTE1MDlkZjIzNmZhM2NiMTA5NjdjZGE3NDg0MDk0MDJiZThlYTE5MjhhMTcxZmRiYjY1OGQ4IjoiY2hlYXRzaGVldC1ib29rIiwiZmE5ZjJlN2NkNjM0ZGU5ZGMyZjdkOTdhYzcwMTNlNmE3NjM0NjI5NmQ1OTZmM2IxNmMzNTRkOWZmMzFmMGZhMiI6InByb21wdHMtYm9vayIsImM4OTg0YzEwZTU2NzRkMzJhNjRiNzU1NjdlYTBjNjU2OGIwYzc3ZDEwNDI3YjAwY2E3OWI3MGVlMmFkOTEyNDUiOiJwb2V0cnktYm9vayIsIjhiY2VmN2M1YzEwYmU2NjA4MzY0MTg0ZTk0ZDBjY2Y4YzJmNDRjN2FhOGM5ZDEyODZhZThkODY3MzU2NzgxYzQiOiJyZWNpcGUtYm9vayIsIjg1MzM3ODE2ZDI2M2QzNjJhY2IyM2E0MjU1YTYzNjE5MTA3NWMyYTkwYzQ3ZjJlZTZkYjMzNjJmN2RmMTEyMDMiOiJwMTc5MTI2NzMwOTgwMCIsIjI4ODkyYTNhMjY1ZmZkOThkZmU2MDI2NWM2MjY2MGNmYzc2MTc3NTFkOGU4MTAzMjU0MWFkYzlkYzM1Yzc1NzciOiJwMTc5MTcxMTE4MDgzNjU5IiwiYTU5OWNmOWI1NzVjODgwZWFmNjM1MzQwM2NjZGU0NTI3ZWQxZDQwZTBmNGI1OGRmNDM1M2ZmZDgyNjJlYzI4ZSI6InAxNzkxNzExMTgwODM3MTEifQ=='));
+const MAP = JSON.parse(atob('eyJlMDg2MDI0ZDE4ZjVkZjAzZmFhYTcyMjg5NTk3ZGZkNWQ2MDczYThmMDAxMTRlOGU4YjJjNWJmODA5YWRkOTg2IjoiamF2YS1ib29rIiwiNjEwZGJiZDliOWJhYmYxYjUyZTFjODVlZjRhMDIzYmE2MWY5MTQyMTRhMzBkNTQwYjliODYwNmYwMzNmNjE4YSI6ImxpbnV4LWJvb2siLCJmOWU0MTUyYzgzZTZmY2M5ZDEzZTRlMjY0Yjk5MWQ3OGY4NjRiMGRmNGY2ZDZjZThlNDQxMTMwNzM4M2U2MzVmIjoiY2hlYXRzaGVldC1ib29rIiwiMWE5MWEyNzk2MzMxZGUyOTRiYjEzOTZlNzE4NzhmYWJiNWNkMmI2YmE5Y2ZlNTE3NTRiYzAzZjZhZmFmZDNmNSI6InByb21wdHMtYm9vayIsIjBlNjQyN2ZiYjUxNjQ4OTEyNDU5M2QxMzRkYTI1MTFhMjQ1MjY4ZmYyY2NlZmY3ZmEwOWVjOGIwZGY2NTBiOWQiOiJwb2V0cnktYm9vayIsIjNjNTk5MzA3YmU0YWVkMGI0ZmVhZjNlOTUwYjhiNzYyZTZiNDBkMTA3OTQxN2MyN2M5MDZjZjMwOTE0ZDUxMGYiOiJyZWNpcGUtYm9vayIsImI3ZTllMTZlZDFlYWFjYjA0Njc5YzExNzNiMDk4MmY4N2FiNWRjM2YwNWM4N2NlMWFhY2ZkZjM0NDM5NTU4MzAiOiJwMTc5MTI2NzMwOTgwMCIsIjMxNWI4OTYxZjJhMzkyYjk0Y2YxY2U1MmQwYTJmOTIwNzYzN2ZhMDM1ZTNjMDkwZDgxMDhlYzMwN2I3NWQ5MTIiOiJwMTc5MTcxMTE4MDgzNjU5IiwiMDkzNWVlZDg1Y2I5OTFkZDA1MGRmOTNkMTBlYWY5NzYyZjQxMDVlMGJlODkxMTE0ZGYzZGMzNmYxODk2MmI5OCI6InAxNzkxNzExMTgwODM3MTEifQ=='));
 async function sha256hex(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
@@ -79,7 +79,7 @@ let fails = 0, lockTimer = null;
 function showErr(msg) { document.getElementById('err').textContent = msg; }
 async function tryUnlock() {
   if (lockTimer) return;
-  const code = input.value.trim().toLowerCase();
+  const code = input.value.trim().toUpperCase();
   if (!code) { showErr('请输入取货码'); return; }
   unlockBtn.textContent = '验证中…'; unlockBtn.disabled = true;
   const h = await sha256hex(code);
