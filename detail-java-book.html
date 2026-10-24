@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083711.html"><span class="rec-icon">📦</span><span class="rec-name">宗门PSD模板</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"U0O6hWIx/bsI04I4CbPZAQ==","i":"YTGML/P/REBA3BVi","c":"PlvR5cWLng+/N9cQ1+cWEJ017qx5yIeVRYnmNMYGsg5Mgq5b6Yhg63TtbX507BUa7TgFtRP26NmlhKrwr32+ez9zVb0D2cRggaooSvnMXPNiXVqMYd/ZaQbj3tZ0VLwu/eKOi22ue4Z+hMh2XtJrftLlGDWLjyyLMcaBemIApcU/ZxbDK6rQpGcKkGYHtRbOISGRYSgRbXKsJg+x5PKkIA=="};
+window.__PAY__ = {"s":"1tQYgWC17UwD8UtRXb5vzA==","i":"LDrcybcTR4XKKUAa","c":"lYgfK9aFcgWxvPOoj9Lo8CemExNa4BCZT7FYfm0phUUkT46R/2MOWbA/fF+M+tF61epuVxklgVYq8aWyZw3ZvbzqgUVZx2GUfTg7bG8A1ZlJr6aDZpQ1WF1Hg+JxAMoFLzqmJhfFRh7HvwqaW8jOHugyPKpIyQg+blXRvsi4r0bmOHTkE4gIXWfaNqAC+BD+dN0pilrR+H56pcBcNqs0Bg=="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2468,16 +2468,21 @@ document.addEventListener('click', function (e) {
     if (busy) return Promise.resolve();
     var code = String(raw || '').trim();
     if (!code) { fail('请输入取货码'); return Promise.resolve(); }
+    // 大小写全兼容：依次试 大写→小写→原文（去重），命中即渲染
+    var seen = {}, cands = [];
+    [code.toUpperCase(), code.toLowerCase(), code].forEach(function (c) { if (c && !seen[c]) { seen[c] = 1; cands.push(c); } });
     busy = true;
     var btn = $('unlock'); btn.textContent = '解密中…'; btn.disabled = true;
-    decryptPayload(code.toUpperCase()).then(function (data) { render(data); })
+    var p = Promise.reject();
+    cands.forEach(function (c) { p = p.catch(function () { return decryptPayload(c); }); });
+    p.then(function (data) { render(data); })
       .catch(function () { fail('取货码不对，请核对后重试'); })
       .then(function () { btn.textContent = '解 锁'; btn.disabled = false; busy = false; });
   }
   $('unlock').addEventListener('click', function () { tryUnlock($('code-input').value); });
   $('code-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock($('code-input').value); });
   var qc = new URLSearchParams(location.search).get('code');
-  if (qc) { $('code-input').value = qc; tryUnlock(qc.toUpperCase()); }
+  if (qc) { $('code-input').value = qc; tryUnlock(qc); }
 })();
 
 </script>
