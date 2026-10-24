@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-poetry-book.html"><span class="rec-icon">📦</span><span class="rec-name">小学生必背古诗词75首 · 注音大字版</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-recipe-book.html"><span class="rec-icon">📦</span><span class="rec-name">在家做饭指南 · 精选60道家常菜</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-recipe-book.html"><span class="rec-icon">📦</span><span class="rec-name">在家做饭指南 · 精选60道家常菜</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"bMREoAGrvQ1i1EqQBPGKWw==","i":"m5NFXprs9ihHMSA3","c":"9fo+7gXAB712wvCuiXs9S3tmaHqs/BryuwNGxVaaOUH2+1R8Mce3CEw25qp9mqejtzqIeV9o/WBAaMVPQY804RqZ2VOgXchOOrlpefaut0vgknJmrKy5n4jqd2PaSf7yqMNYJT96KnQaEPikUm5ChNYE5eaG5gNZQC8xyFvl4zr0STpZDp43Jm4d+rJf9uswKgHDn5KGG9x17qLfaOt53LXZWcQdRoefd5H/5X41ms32rLMAN4C9"};
+window.__PAY__ = {"s":"yjg6/0a6wSPvU4X9Hg9Ipg==","i":"Ztc605Gy3A4rBZ6l","c":"yLDTp+l+lq1W66nyKjMmi4FfIpjWEgqAJk0Jab1YLxAzD7FK0ase0dVN6Edbtpqadf4eJ1em5sEhc0gjCQopHHVo0L1qvl8AHqUntGXy7jwg/ixiu40/3Mt44LjMhPbmJYy5fDAJPHCksSlEM0zjGaY06p+PLV82lGcDM7fckWwdH8OAwLkVhQSHrT6qD8PsnUVr7NBNShhBVN5o6zB1P6sO455lrbhMv/tWhBP/ONGtmg3B5Fn4"};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2459,7 +2459,7 @@ document.addEventListener('click', function (e) {
       if (data.extractPassword) { pw.hidden = false; pw.querySelector('b').textContent = data.extractPassword; pw.querySelector('.copy').dataset.copy = data.extractPassword; }
       else { pw.hidden = true; }
     }
-    $('gate').style.display = 'none';
+    $('gatebox').style.display = 'none';
     var res = $('result'); res.hidden = false; res.classList.add('unlocked');
   }
   function fail(msg) { var err = $('err'); err.textContent = msg; err.classList.add('shake'); setTimeout(function () { err.classList.remove('shake'); }, 500); }
