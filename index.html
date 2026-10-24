@@ -63,7 +63,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const MAP = JSON.parse(atob('__MAPB64__'));
+const MAP = JSON.parse(atob('eyI4NTMzNzgxNmQyNjNkMzYyYWNiMjNhNDI1NWE2MzYxOTEwNzVjMmE5MGM0N2YyZWU2ZGIzMzYyZjdkZjExMjAzIjoicDE3OTEyNjczMDk4MDAiLCIyODg5MmEzYTI2NWZmZDk4ZGZlNjAyNjVjNjI2NjBjZmM3NjE3NzUxZDhlODEwMzI1NDFhZGM5ZGMzNWM3NTc3IjoicDE3OTE3MTExODA4MzY1OSJ9'));
 async function sha256hex(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
