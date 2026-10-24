@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-java-book.html"><span class="rec-icon">📦</span><span class="rec-name">Java 面试八股文宝典 · 450道高频题</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"qDyY5rrhSeI2HGHCmqEflA==","i":"pd8edegiHfE9s7T2","c":"qSehu1WrT4XLv+wHZ4kJt+2OpC357DJ+AjLQWOvkVKiHf9NaCr5WTRPyL9I5QA5RJjB1x1DZPQzfJaDOIFd2pXGrNmKeUQ5l3PAqimTayp0Yd+Xic7JoH8xu0jO150AyTHHHyYAkaU5fPxF0uqyqXdEzgQjw1YrZ61YeArSdroGUvROenES5EPWVxqv9g8kESspznRURHvwzngaiBURO/A=="};
+window.__PAY__ = {"s":"wwrUOeeMJBg/UEmRbCcx9A==","i":"Q/0VbhMlQlnNy8DR","c":"9ueB8MIT6cOpx0g34fu4AX8SGC7nYLkMDCjs1/Rs4fJx4FhNgttjkuxYYk0RFDhQTi3c0G6J8WCczRq8IZq8gnrUfd+VzCjqClvLzgU2koLH3tE2gXqfI95Ld4gHKX8WVHPDE0fW/9V7GWWBhLonpj6qT68q7fdNrVwfvZ+78SE20IzyBB66EzPFVlcp/ShHRTgNBjMwX7SojbcFEcbaWg=="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2477,7 +2477,7 @@ document.addEventListener('click', function (e) {
   $('unlock').addEventListener('click', function () { tryUnlock($('code-input').value); });
   $('code-input').addEventListener('keydown', function (e) { if (e.key === 'Enter') tryUnlock($('code-input').value); });
   var qc = new URLSearchParams(location.search).get('code');
-  if (qc) { $('code-input').value = qc; tryUnlock(qc); }
+  if (qc) { $('code-input').value = qc; tryUnlock(qc.toLowerCase()); }
 })();
 
 </script>
