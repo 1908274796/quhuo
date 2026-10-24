@@ -5,21 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>优选资料铺</title>
-<style>// 共享基础样式
-:root { --bg:#0A0E14; --panel:rgba(17,22,29,.66); --ink:#E6EDF3; --sub:#8B98A5; --line:rgba(148,163,184,.16);
-  --v:#8B5CF6; --c:#22D3EE; --ok:#34D399; --err:#F87171; --mono:ui-monospace,'SF Mono',Consolas,monospace; }
+<style>:root { --bg:#0A0E14; --panel:rgba(17,22,29,.66); --ink:#E6EDF3; --sub:#8B98A5; --line:rgba(148,163,184,.16); --v:#8B5CF6; --c:#22D3EE; --ok:#34D399; --err:#F87171; --mono:ui-monospace,'SF Mono',Consolas,monospace; }
 * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink);
-  font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; overflow-x:hidden; }
-body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
-  background: radial-gradient(600px 400px at 15% -5%, rgba(139,92,246,.16), transparent 65%),
-              radial-gradient(700px 500px at 90% 110%, rgba(34,211,238,.12), transparent 65%); }
-body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35;
-  background-image: linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px);
-  background-size: 44px 44px; }
-.glass { background:var(--panel); border:1px solid var(--line); border-radius:18px;
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05); }
+body { margin:0; min-height:100vh; background:var(--bg); color:var(--ink); font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif; overflow-x:hidden; }
+body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; background: radial-gradient(600px 400px at 15% -5%, rgba(139,92,246,.16), transparent 65%), radial-gradient(700px 500px at 90% 110%, rgba(34,211,238,.12), transparent 65%); }
+body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35; background-image: linear-gradient(rgba(148,163,184,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.05) 1px, transparent 1px); background-size: 44px 44px; }
+.glass { background:var(--panel); border:1px solid var(--line); border-radius:18px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 8px 32px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05); }
 @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
 @keyframes glowShift { 0%,100% { opacity:.5; } 50% { opacity:1; } }
 @keyframes shake { 0%,100% { transform:translateX(0); } 25% { transform:translateX(-7px); } 75% { transform:translateX(7px); } }
@@ -112,6 +103,5 @@ function hideErr() { document.getElementById('err').textContent = ''; }
 unlockBtn.addEventListener('click', () => tryUnlock());
 input.addEventListener('keydown', e => { if (e.key === 'Enter') tryUnlock(); });
 </script>
-</div>
 </body>
 </html>
