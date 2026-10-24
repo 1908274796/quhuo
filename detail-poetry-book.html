@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-linux-book.html"><span class="rec-icon">📦</span><span class="rec-name">Linux 命令大全 · 621个命令详解</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"hEgzuHkwlEmwr7YVg9/apw==","i":"W51whhuljjeDnfpP","c":"lM1rd9wOMnyo/toOcJb3p4JQcHgr6HvrxWL84EQTPNLzZe0DXP8k9S5ZmOpjqSA4+AmPauYrfH+N+wT99YdYk13l1+NU13FFv1JMsR8aDgefV/HA5EVjznqufDRJCWRZDGqJA+Z3M1aND3oLvPxEiYXujk1ER6B1AoS3e7rVhQJ8AOlMYeE3AWLhpcyqP8utuOGnHk8QHcb6MTm8Qv6cIA=="};
+window.__PAY__ = {"s":"tDvVaCs0v65XiejFXt59gQ==","i":"OcdIQdb3mv987ws3","c":"rVBIF9PEeFLdG08/4qJhildPxPH6Qfxv82AFxBDHS+wJCQCvJspNRdkI4dFUBpiNqkHAcq3yTarVChWjgdM8xQHLXLs7CMjd5zeUZOuyrU0udVApdpdomYE8MX9oAmEaTtIB4a5Hdh+4TNNvsqSeoqTIEPCHfbZZU+01mbrnIqvSMVB/v2nPKsxiOD70pm0oqCBn5q6BBXr+PjJOYYEqtg=="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2459,7 +2459,7 @@ document.addEventListener('click', function (e) {
       if (data.extractPassword) { pw.hidden = false; pw.querySelector('b').textContent = data.extractPassword; pw.querySelector('.copy').dataset.copy = data.extractPassword; }
       else { pw.hidden = true; }
     }
-    $('gate').style.display = 'none';
+    $('gatebox').style.display = 'none';
     var res = $('result'); res.hidden = false; res.classList.add('unlocked');
   }
   function fail(msg) { var err = $('err'); err.textContent = msg; err.classList.add('shake'); setTimeout(function () { err.classList.remove('shake'); }, 500); }
