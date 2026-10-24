@@ -47,7 +47,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px
     <div class="logo-tile">📦</div>
     <h1>优选资料铺</h1>
     <p>程序员 / 效率 / 家庭 · 精选电子资料</p>
-    <div class="chips"><span>✦ 已上架 2 件</span><span>⚡ 自动发货</span><span>🔗 链接永久有效</span></div>
+    <div class="chips"><span>✦ 已上架 9 件</span><span>⚡ 自动发货</span><span>🔗 链接永久有效</span></div>
   </div>
   <div class="portal">
     <div class="portal-ico">🔐</div>
@@ -63,7 +63,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const MAP = JSON.parse(atob('eyI4NTMzNzgxNmQyNjNkMzYyYWNiMjNhNDI1NWE2MzYxOTEwNzVjMmE5MGM0N2YyZWU2ZGIzMzYyZjdkZjExMjAzIjoicDE3OTEyNjczMDk4MDAiLCIyODg5MmEzYTI2NWZmZDk4ZGZlNjAyNjVjNjI2NjBjZmM3NjE3NzUxZDhlODEwMzI1NDFhZGM5ZGMzNWM3NTc3IjoicDE3OTE3MTExODA4MzY1OSJ9'));
+const MAP = JSON.parse(atob('eyIwY2JiNzY4NTY2ZmZjOWVhMjQwY2NjYjYzMGJmMzAwYzdiMTE2OWEwYTE0ZDI5MGNjM2E3YjU1MTgwOTYwNmI4IjoiamF2YS1ib29rIiwiMTJhMjM5MzQwMzYwNmEyMjY4MTk4YzAzNTJjMjgyMjQxMDc5MWFmZmM2OTRkOTk4M2ViZGI0OWFhZjZmYjI5OSI6ImxpbnV4LWJvb2siLCJiNDQ0YWE3MzE4OTE1MDlkZjIzNmZhM2NiMTA5NjdjZGE3NDg0MDk0MDJiZThlYTE5MjhhMTcxZmRiYjY1OGQ4IjoiY2hlYXRzaGVldC1ib29rIiwiZmE5ZjJlN2NkNjM0ZGU5ZGMyZjdkOTdhYzcwMTNlNmE3NjM0NjI5NmQ1OTZmM2IxNmMzNTRkOWZmMzFmMGZhMiI6InByb21wdHMtYm9vayIsImM4OTg0YzEwZTU2NzRkMzJhNjRiNzU1NjdlYTBjNjU2OGIwYzc3ZDEwNDI3YjAwY2E3OWI3MGVlMmFkOTEyNDUiOiJwb2V0cnktYm9vayIsIjhiY2VmN2M1YzEwYmU2NjA4MzY0MTg0ZTk0ZDBjY2Y4YzJmNDRjN2FhOGM5ZDEyODZhZThkODY3MzU2NzgxYzQiOiJyZWNpcGUtYm9vayIsIjg1MzM3ODE2ZDI2M2QzNjJhY2IyM2E0MjU1YTYzNjE5MTA3NWMyYTkwYzQ3ZjJlZTZkYjMzNjJmN2RmMTEyMDMiOiJwMTc5MTI2NzMwOTgwMCIsIjI4ODkyYTNhMjY1ZmZkOThkZmU2MDI2NWM2MjY2MGNmYzc2MTc3NTFkOGU4MTAzMjU0MWFkYzlkYzM1Yzc1NzciOiJwMTc5MTcxMTE4MDgzNjU5IiwiYTU5OWNmOWI1NzVjODgwZWFmNjM1MzQwM2NjZGU0NTI3ZWQxZDQwZTBmNGI1OGRmNDM1M2ZmZDgyNjJlYzI4ZSI6InAxNzkxNzExMTgwODM3MTEifQ=='));
 async function sha256hex(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
