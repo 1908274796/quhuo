@@ -19,8 +19,8 @@ body::after { content:''; position:fixed; inset:0; pointer-events:none; z-index:
 .back { display:inline-flex; align-items:center; gap:6px; margin:2px 0 10px; font-size:13px; color:var(--sub); text-decoration:none; }
 .head { text-align:center; padding:18px 0 6px; animation:fadeUp .55s ease both; }
 .head .icon { font-size:42px; width:84px; height:84px; border-radius:26px; display:flex; align-items:center; justify-content:center; margin:0 auto 12px;
-  background: linear-gradient(135deg, hsl(297 60% 55% / .22), hsl(297 70% 60% / .12)); border: 1px solid hsl(297 60% 55% / .35);
-  box-shadow: 0 0 44px hsl(297 70% 55% / .22); }
+  background: linear-gradient(135deg, hsl(219 60% 55% / .22), hsl(219 70% 60% / .12)); border: 1px solid hsl(219 60% 55% / .35);
+  box-shadow: 0 0 44px hsl(219 70% 55% / .22); }
 .head h1 { font-size:22px; font-weight:800; margin:8px 0 5px; line-height:1.4; }
 .head .desc { font-size:12.5px; color:var(--sub); margin:0; }
 .gallery { display:flex; gap:10px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 2px 10px; -webkit-overflow-scrolling:touch; }
@@ -97,7 +97,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-p1791267309800.html"><span class="rec-icon">📦</span><span class="rec-name">救生员狂热</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-prompts-book.html"><span class="rec-icon">📦</span><span class="rec-name">AI 提示词宝典 · 239条拿来即用指令</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-java-book.html"><span class="rec-icon">📦</span><span class="rec-name">Java 面试八股文宝典 · 450道高频题</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2402,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"xOirD5gEJEZ750rlm372WA==","i":"X+D3e0I1N83FcIPH","c":"fGqr2kpOFHDE5nIEiJt8KKzsECzPCJxHIoBb8U2azFW2eJ+RrSCkqFlDvlOc+YYIdbKgzHJolm9sT9BjDvNDL/DVXAK/yr2O1DK9Jco7iwAtc7acmysnvBB5wwdeGW7v94YQ7aGiPL0TfXU3MTAzrvaOi6auo0vAwsED9+4OCf40uSKqI8DB0pPRT6ZIj1FNF+CUZBKUsG21eFheM5V1NTMrAT75ntq16XGDqfV9fcKlI5Tqsyeb"};
+window.__PAY__ = {"s":"FyF0G31gCWNl/skxpGGU0g==","i":"Cqtuqicpikccm731","c":"xNNS+xyT1CbTbzVuJ/C7TwntRfdAlGa5VxH7O/uZ4O14V9njuoE1WbO3Q1sDb4ZeHBZlCAFTSOwSg9zpPqgKwxQFHpCMfjYJFvKQjeTAtQ6FIWhO89SWmQl1FEM3CHcg20L9i9ui2ZFZM9KmrJcV/q8N6Vkulzjs0wsIS/Mbilb+iW9OcHCob0YqaqhNgxuaqU6RUAUIxiTkQDyAuVwbj+vLQORJ2+qAJvrqOPZIyhbbxEyQTsuB"};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
