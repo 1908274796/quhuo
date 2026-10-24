@@ -63,7 +63,7 @@ footer { text-align:center; font-size: 11px; color: var(--sub); margin-top: 30px
 </div>
 <div class="toast" id="toast"></div>
 <script>
-const MAP = JSON.parse(atob('eyJlMDg2MDI0ZDE4ZjVkZjAzZmFhYTcyMjg5NTk3ZGZkNWQ2MDczYThmMDAxMTRlOGU4YjJjNWJmODA5YWRkOTg2IjoiamF2YS1ib29rIiwiNjEwZGJiZDliOWJhYmYxYjUyZTFjODVlZjRhMDIzYmE2MWY5MTQyMTRhMzBkNTQwYjliODYwNmYwMzNmNjE4YSI6ImxpbnV4LWJvb2siLCJmOWU0MTUyYzgzZTZmY2M5ZDEzZTRlMjY0Yjk5MWQ3OGY4NjRiMGRmNGY2ZDZjZThlNDQxMTMwNzM4M2U2MzVmIjoiY2hlYXRzaGVldC1ib29rIiwiMWE5MWEyNzk2MzMxZGUyOTRiYjEzOTZlNzE4NzhmYWJiNWNkMmI2YmE5Y2ZlNTE3NTRiYzAzZjZhZmFmZDNmNSI6InByb21wdHMtYm9vayIsIjBlNjQyN2ZiYjUxNjQ4OTEyNDU5M2QxMzRkYTI1MTFhMjQ1MjY4ZmYyY2NlZmY3ZmEwOWVjOGIwZGY2NTBiOWQiOiJwb2V0cnktYm9vayIsIjNjNTk5MzA3YmU0YWVkMGI0ZmVhZjNlOTUwYjhiNzYyZTZiNDBkMTA3OTQxN2MyN2M5MDZjZjMwOTE0ZDUxMGYiOiJyZWNpcGUtYm9vayIsImI3ZTllMTZlZDFlYWFjYjA0Njc5YzExNzNiMDk4MmY4N2FiNWRjM2YwNWM4N2NlMWFhY2ZkZjM0NDM5NTU4MzAiOiJwMTc5MTI2NzMwOTgwMCIsIjMxNWI4OTYxZjJhMzkyYjk0Y2YxY2U1MmQwYTJmOTIwNzYzN2ZhMDM1ZTNjMDkwZDgxMDhlYzMwN2I3NWQ5MTIiOiJwMTc5MTcxMTE4MDgzNjU5IiwiMDkzNWVlZDg1Y2I5OTFkZDA1MGRmOTNkMTBlYWY5NzYyZjQxMDVlMGJlODkxMTE0ZGYzZGMzNmYxODk2MmI5OCI6InAxNzkxNzExMTgwODM3MTEifQ=='));
+const MAP = JSON.parse(atob('eyJlMDg2MDI0ZDE4ZjVkZjAzZmFhYTcyMjg5NTk3ZGZkNWQ2MDczYThmMDAxMTRlOGU4YjJjNWJmODA5YWRkOTg2IjoiamF2YS1ib29rIiwiMGNiYjc2ODU2NmZmYzllYTI0MGNjY2I2MzBiZjMwMGM3YjExNjlhMGExNGQyOTBjYzNhN2I1NTE4MDk2MDZiOCI6ImphdmEtYm9vayIsIjYxMGRiYmQ5YjliYWJmMWI1MmUxYzg1ZWY0YTAyM2JhNjFmOTE0MjE0YTMwZDU0MGI5Yjg2MDZmMDMzZjYxOGEiOiJsaW51eC1ib29rIiwiMTJhMjM5MzQwMzYwNmEyMjY4MTk4YzAzNTJjMjgyMjQxMDc5MWFmZmM2OTRkOTk4M2ViZGI0OWFhZjZmYjI5OSI6ImxpbnV4LWJvb2siLCJmOWU0MTUyYzgzZTZmY2M5ZDEzZTRlMjY0Yjk5MWQ3OGY4NjRiMGRmNGY2ZDZjZThlNDQxMTMwNzM4M2U2MzVmIjoiY2hlYXRzaGVldC1ib29rIiwiYjQ0NGFhNzMxODkxNTA5ZGYyMzZmYTNjYjEwOTY3Y2RhNzQ4NDA5NDAyYmU4ZWExOTI4YTE3MWZkYmI2NThkOCI6ImNoZWF0c2hlZXQtYm9vayIsIjFhOTFhMjc5NjMzMWRlMjk0YmIxMzk2ZTcxODc4ZmFiYjVjZDJiNmJhOWNmZTUxNzU0YmMwM2Y2YWZhZmQzZjUiOiJwcm9tcHRzLWJvb2siLCJmYTlmMmU3Y2Q2MzRkZTlkYzJmN2Q5N2FjNzAxM2U2YTc2MzQ2Mjk2ZDU5NmYzYjE2YzM1NGQ5ZmYzMWYwZmEyIjoicHJvbXB0cy1ib29rIiwiMGU2NDI3ZmJiNTE2NDg5MTI0NTkzZDEzNGRhMjUxMWEyNDUyNjhmZjJjY2VmZjdmYTA5ZWM4YjBkZjY1MGI5ZCI6InBvZXRyeS1ib29rIiwiYzg5ODRjMTBlNTY3NGQzMmE2NGI3NTU2N2VhMGM2NTY4YjBjNzdkMTA0MjdiMDBjYTc5YjcwZWUyYWQ5MTI0NSI6InBvZXRyeS1ib29rIiwiM2M1OTkzMDdiZTRhZWQwYjRmZWFmM2U5NTBiOGI3NjJlNmI0MGQxMDc5NDE3YzI3YzkwNmNmMzA5MTRkNTEwZiI6InJlY2lwZS1ib29rIiwiOGJjZWY3YzVjMTBiZTY2MDgzNjQxODRlOTRkMGNjZjhjMmY0NGM3YWE4YzlkMTI4NmFlOGQ4NjczNTY3ODFjNCI6InJlY2lwZS1ib29rIiwiYjdlOWUxNmVkMWVhYWNiMDQ2NzljMTE3M2IwOTgyZjg3YWI1ZGMzZjA1Yzg3Y2UxYWFjZmRmMzQ0Mzk1NTgzMCI6InAxNzkxMjY3MzA5ODAwIiwiODUzMzc4MTZkMjYzZDM2MmFjYjIzYTQyNTVhNjM2MTkxMDc1YzJhOTBjNDdmMmVlNmRiMzM2MmY3ZGYxMTIwMyI6InAxNzkxMjY3MzA5ODAwIiwiMzE1Yjg5NjFmMmEzOTJiOTRjZjFjZTUyZDBhMmY5MjA3NjM3ZmEwMzVlM2MwOTBkODEwOGVjMzA3Yjc1ZDkxMiI6InAxNzkxNzExMTgwODM2NTkiLCIyODg5MmEzYTI2NWZmZDk4ZGZlNjAyNjVjNjI2NjBjZmM3NjE3NzUxZDhlODEwMzI1NDFhZGM5ZGMzNWM3NTc3IjoicDE3OTE3MTExODA4MzY1OSIsIjA5MzVlZWQ4NWNiOTkxZGQwNTBkZjkzZDEwZWFmOTc2MmY0MTA1ZTBiZTg5MTExNGRmM2RjMzZmMTg5NjJiOTgiOiJwMTc5MTcxMTE4MDgzNzExIiwiYTU5OWNmOWI1NzVjODgwZWFmNjM1MzQwM2NjZGU0NTI3ZWQxZDQwZTBmNGI1OGRmNDM1M2ZmZDgyNjJlYzI4ZSI6InAxNzkxNzExMTgwODM3MTEifQ=='));
 async function sha256hex(text) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
@@ -79,13 +79,15 @@ let fails = 0, lockTimer = null;
 function showErr(msg) { document.getElementById('err').textContent = msg; }
 async function tryUnlock() {
   if (lockTimer) return;
-  const code = input.value.trim().toUpperCase();
-  if (!code) { showErr('请输入取货码'); return; }
+  const raw = input.value.trim();
+  if (!raw) { showErr('请输入取货码'); return; }
   unlockBtn.textContent = '验证中…'; unlockBtn.disabled = true;
-  const h = await sha256hex(code);
+  const seen = {}, cands = [];
+  [raw.toUpperCase(), raw.toLowerCase(), raw].forEach(c => { if (c && !seen[c]) { seen[c] = 1; cands.push(c); } });
+  let hit = null;
+  for (const c of cands) { const h = await sha256hex(c); if (MAP[h]) { hit = MAP[h]; break; } }
   unlockBtn.textContent = '解 锁'; unlockBtn.disabled = false;
-  const hit = MAP[h];
-  if (hit) { location.href = 'detail-' + hit + '.html?code=' + encodeURIComponent(code); return; }
+  if (hit) { location.href = 'detail-' + hit + '.html?code=' + encodeURIComponent(cands[0]) + '&v=' + Date.now().toString(36); return; }
   fails++;
   showErr('取货码不对，请核对后重试（还可试 ' + (5 - fails) + ' 次）');
   if (fails >= 5) {
