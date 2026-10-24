@@ -81,14 +81,16 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   
   <div class="intro glass"><p>内容为个人整理，如有问题可留言联系我。</p></div>
   <div class="gatebox glass" id="gatebox">
-    <div class="lock-ico">🔐</div>
-    <div class="gate-title">输入取货码解锁</div>
-    <div class="gate-sub">取货码由卖家提供（见闲鱼发货消息）</div>
-    <div class="gate">
-      <input id="code-input" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="····" class="code-input" />
-      <button id="unlock" class="btn-unlock">解 锁</button>
+    <div id="gateform">
+      <div class="lock-ico">🔐</div>
+      <div class="gate-title">输入取货码解锁</div>
+      <div class="gate-sub">取货码由卖家提供（见闲鱼发货消息）</div>
+      <div class="gate">
+        <input id="code-input" type="text" inputmode="text" autocomplete="off" maxlength="12" placeholder="····" class="code-input" />
+        <button id="unlock" class="btn-unlock">解 锁</button>
+      </div>
+      <p class="err" id="err"></p>
     </div>
-    <p class="err" id="err"></p>
     <div id="result" hidden>
       <div id="cargo"></div>
       <div class="pwd-row" id="safeword-row" hidden>安全码：<b></b><button class="copy">复制</button></div>
@@ -97,7 +99,7 @@ footer { text-align:center; font-size:11px; color:var(--sub); margin-top:30px; l
   </div>
   <div class="recs">
     <div class="recs-title">🔥 猜你喜欢</div>
-    <div class="recs-grid"><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083711.html"><span class="rec-icon">📦</span><span class="rec-name">宗门PSD模板</span><span class="rec-go">查看详情 ▸</span></a></div>
+    <div class="recs-grid"><a class="rec-card" href="detail-cheatsheet-book.html"><span class="rec-icon">📦</span><span class="rec-name">程序员速查手册 · 22张高频速查表</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-p179171118083659.html"><span class="rec-icon">📦</span><span class="rec-name">妈妈的日记</span><span class="rec-go">查看详情 ▸</span></a><a class="rec-card" href="detail-recipe-book.html"><span class="rec-icon">📦</span><span class="rec-name">在家做饭指南 · 精选60道家常菜</span><span class="rec-go">查看详情 ▸</span></a></div>
     <p class="recs-tip">想换别的？去闲鱼拍下对应商品，拿对应取货码就能在这里查看</p>
   </div>
   <footer>记录生活，分享美好 · 谢谢光临</footer>
@@ -2402,7 +2404,7 @@ var qrcode = function() {
 }));
 </script>
 <script>
-window.__PAY__ = {"s":"K90omLAceOIlWZh1EMOQ5w==","i":"7VdTwslLKPK2ULMr","c":"rvZmOSwgYvR/ffoXLObyMBz/6b1MXBtQaUSsMwMaQ9C2Skh+OgxiVQGqdSiMKR1YtyNfzg6EZTG12+Zdp7LkgTDVKi/EYrhaJSOEE+IoRp3MIeHEWMAztyuzqhRRByeauvpqb5G+DkwiXgsVqZM3y4Rf8Ndt7UM9lNWqq7fPeZk1C5j+hISVT3qbmdoLysgMCF8FVLZ+KyaSxeUf9K10Aw=="};
+window.__PAY__ = {"s":"D49ajRU7OsQjv09BIs2hIw==","i":"Z7wBAE1RKDKZDuUX","c":"wgMgSWtgcsMaF3d2p21wt4t20sAUh/rdvVtPyNsHr/hIYYOQQNafPudeohiZUE0EjTuaYtHQqVh+IDQxNarw5LnlGGoijgga2JQhdCA7XQJA858K0qtpY/+XKR0wnnvcHAL1Sr4REjwUAGKgh3vdwn8RzQxlHds/ILCuqelDkSbHEuYL3BmyEcqBIhGR+rfRdRLAeQLZInLpwl0gaQoigw=="};
 window.makeQR = function (text, cell) {
   var qr = qrcode(0, 'M'); qr.addData(text); qr.make();
   return qr.createImgTag(cell || 4, 0);
@@ -2459,7 +2461,7 @@ document.addEventListener('click', function (e) {
       if (data.extractPassword) { pw.hidden = false; pw.querySelector('b').textContent = data.extractPassword; pw.querySelector('.copy').dataset.copy = data.extractPassword; }
       else { pw.hidden = true; }
     }
-    $('gatebox').style.display = 'none';
+    $('gateform').style.display = 'none';
     var res = $('result'); res.hidden = false; res.classList.add('unlocked');
   }
   function fail(msg) { var err = $('err'); err.textContent = msg; err.classList.add('shake'); setTimeout(function () { err.classList.remove('shake'); }, 500); }
